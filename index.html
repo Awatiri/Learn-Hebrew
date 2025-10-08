@@ -1,0 +1,2542 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn Hebrew on the go. We have democratized the learning process with interactive Modern Hebrew lessons, gamified progress tracking, and comprehensive curriculum.">
+    <meta name="keywords" content="Modern Hebrew, Hebrew, Semite, Canaanite, Paleo-Hebrew, Learn Hebrew, Hebrew Language, Hebrew Lessons, Ivrit, Hebrew Grammar, Hebrew Alphabet">
+    <meta name="author" content="Hebrew Master Pro">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hebrewmasterpro.com/">
+    <meta property="og:title" content="Hebrew Master Pro - Learn Modern Hebrew Through Interactive Lessons">
+    <meta property="og:description" content="Learn Hebrew on the go. We have democratized the learning process with interactive Modern Hebrew lessons, gamified progress tracking, and comprehensive curriculum.">
+    <meta property="og:image" content="https://hebrewmasterpro.com/assets/og-hebrew-learning.webp">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://hebrewmasterpro.com/">
+    <meta property="twitter:title" content="Hebrew Master Pro - Learn Modern Hebrew Through Interactive Lessons">
+    <meta property="twitter:description" content="Learn Hebrew on the go. We have democratized the learning process with interactive Modern Hebrew lessons, gamified progress tracking, and comprehensive curriculum.">
+    <meta property="twitter:image" content="https://hebrewmasterpro.com/assets/og-hebrew-learning.webp">
+
+    <link rel="canonical" href="https://hebrewmasterpro.com/">
+    <title>Hebrew Master Pro - Learn Modern Hebrew Through Interactive Lessons</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Hebrew:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563EB',
+                        secondary: '#64748B',
+                        accent: '#3B82F6',
+                        success: '#10B981',
+                        warning: '#F59E0B',
+                        silver: '#E5E7EB',
+                        hebrewBlue: '#1E40AF',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        hebrew: ['Noto Sans Hebrew', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- JSON-LD Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "Hebrew Master Pro",
+        "description": "Interactive Modern Hebrew language learning platform with gamified lessons, comprehensive curriculum, and advanced progress tracking",
+        "url": "https://hebrewmasterpro.com",
+        "logo": "https://hebrewmasterpro.com/assets/logo-hebrew-master.webp",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "Educational Support",
+            "availableLanguage": ["English", "Hebrew"]
+        },
+        "offers": {
+            "@type": "Course",
+            "name": "Comprehensive Modern Hebrew Course",
+            "description": "Complete Hebrew language course covering alphabet, vocabulary, grammar, conversation skills, and cultural context",
+            "provider": {
+                "@type": "EducationalOrganization",
+                "name": "Hebrew Master Pro"
+            },
+            "educationalLevel": "Beginner to Intermediate",
+            "inLanguage": "he",
+            "courseMode": "Online",
+            "hasCourseInstance": {
+                "@type": "CourseInstance",
+                "courseMode": "Online",
+                "courseWorkload": "P8W"
+            }
+        }
+    }
+    </script>
+
+    <style>
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.03) 0%, rgba(59, 130, 246, 0.05) 50%, rgba(229, 231, 235, 0.08) 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="hebrew-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><text x="50" y="50" text-anchor="middle" dominant-baseline="middle" fill="%232563EB" opacity="0.02" font-size="20" font-family="serif">א</text><text x="75" y="25" text-anchor="middle" dominant-baseline="middle" fill="%233B82F6" opacity="0.015" font-size="16" font-family="serif">ב</text></pattern></defs><rect width="100%" height="100%" fill="url(%23hebrew-pattern)"/></svg>');
+            background-size: cover, 120px 120px;
+            background-position: center, 0 0;
+            background-attachment: fixed, scroll;
+        }
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .hebrew-text {
+            font-family: 'Noto Sans Hebrew', serif;
+            font-size: 1.25em;
+            direction: rtl;
+            text-align: right;
+            line-height: 1.6;
+        }
+        
+        .hebrew-large {
+            font-family: 'Noto Sans Hebrew', serif;
+            font-size: 3rem;
+            font-weight: bold;
+            color: #2563EB;
+            direction: rtl;
+        }
+        
+        .progress-bar {
+            background: linear-gradient(90deg, #2563EB 0%, #3B82F6 50%, #10B981 100%);
+        }
+        
+        .sound-off {
+            opacity: 0.5;
+            filter: grayscale(100%);
+        }
+        
+        .lesson-locked {
+            opacity: 0.6;
+            pointer-events: none;
+            filter: grayscale(30%);
+        }
+        
+        .lesson-completed {
+            border: 3px solid #10B981;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
+        }
+        
+        .celebration {
+            animation: celebrate 1s ease-out;
+        }
+        
+        @keyframes celebrate {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            25% { transform: scale(1.05) rotate(2deg); }
+            50% { transform: scale(1.1) rotate(-2deg); }
+            75% { transform: scale(1.05) rotate(1deg); }
+        }
+        
+        .hebrew-letter {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #2563EB;
+            font-family: 'Noto Sans Hebrew', serif;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .writing-canvas {
+            border: 3px dashed #CBD5E1;
+            background: linear-gradient(45deg, #F8FAFC 25%, transparent 25%), 
+                        linear-gradient(-45deg, #F8FAFC 25%, transparent 25%),
+                        linear-gradient(45deg, transparent 75%, #F8FAFC 75%), 
+                        linear-gradient(-45deg, transparent 75%, #F8FAFC 75%);
+            background-size: 25px 25px;
+            background-position: 0 0, 0 12.5px, 12.5px -12.5px, -12.5px 0px;
+            transition: all 0.3s ease;
+            min-height: 320px;
+        }
+        
+        .writing-canvas:hover {
+            border-color: #3B82F6;
+            background-color: rgba(59, 130, 246, 0.02);
+        }
+        
+        .modal {
+            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.6);
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px) scale(0.9); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0) scale(1); 
+            }
+        }
+        
+        .token-pulse {
+            animation: tokenPulse 2s infinite;
+        }
+        
+        @keyframes tokenPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.08); }
+        }
+        
+        .hebrew-writing-guide {
+            background: linear-gradient(to right, 
+                transparent 0%, 
+                rgba(59, 130, 246, 0.1) 25%, 
+                rgba(59, 130, 246, 0.1) 75%, 
+                transparent 100%);
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .dark .writing-canvas {
+                background: #1E293B;
+                border-color: #475569;
+            }
+            
+            .dark .hebrew-writing-guide {
+                background: linear-gradient(to right, 
+                    transparent 0%, 
+                    rgba(59, 130, 246, 0.2) 25%, 
+                    rgba(59, 130, 246, 0.2) 75%, 
+                    transparent 100%);
+            }
+        }
+        
+        .rtl {
+            direction: rtl;
+            text-align: right;
+        }
+        
+        .ltr {
+            direction: ltr;
+            text-align: left;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #2563EB 0%, #3B82F6 50%, #10B981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .floating-animation {
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .quiz-option {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .quiz-option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.15), transparent);
+            transition: left 0.6s;
+        }
+        
+        .quiz-option:hover::before {
+            left: 100%;
+        }
+        
+        /* Accessibility improvements */
+        .focus\:ring-4:focus {
+            outline: none;
+            ring-width: 4px;
+            ring-color: rgba(59, 130, 246, 0.5);
+        }
+        
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        /* Performance optimizations */
+        .will-change-transform {
+            will-change: transform;
+        }
+        
+        .will-change-auto {
+            will-change: auto;
+        }
+        
+        /* Hebrew alphabet grid enhancements */
+        .alphabet-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border: 2px solid #e5e7eb;
+        }
+        
+        .alphabet-card:hover {
+            border-color: #3B82F6;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        }
+        
+        /* Enhanced lesson cards */
+        .lesson-card {
+            background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%);
+            border: 2px solid #f1f5f9;
+        }
+        
+        /* Simulation enhancements */
+        .simulation-area {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+        }
+    </style>
+</head>
+<body class="font-sans bg-white text-gray-900">
+    <!-- Accessibility Skip Link -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary text-white px-4 py-2 rounded-lg z-50">
+        Skip to main content
+    </a>
+
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50 transition-all duration-300" id="header" role="banner">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center" role="navigation" aria-label="Main navigation">
+            <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center shadow-lg">
+                    <span class="text-white font-bold text-xl font-hebrew" aria-hidden="true">ח</span>
+                </div>
+                <div>
+                    <span class="text-2xl font-bold gradient-text">Hebrew Master</span>
+                    <span class="text-sm text-gray-500 block">Pro Academy</span>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex space-x-8" role="menubar">
+                <a href="#lessons" class="hover:text-primary transition-colors focus:ring-4 focus:ring-accent rounded-lg px-3 py-2" role="menuitem">Lessons</a>
+                <a href="#alphabet" class="hover:text-primary transition-colors focus:ring-4 focus:ring-accent rounded-lg px-3 py-2" role="menuitem">Alphabet</a>
+                <a href="#simulation" class="hover:text-primary transition-colors focus:ring-4 focus:ring-accent rounded-lg px-3 py-2" role="menuitem">Practice</a>
+                <a href="#vocabulary" class="hover:text-primary transition-colors focus:ring-4 focus:ring-accent rounded-lg px-3 py-2" role="menuitem">Vocabulary</a>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <button id="soundToggle" class="p-3 rounded-full hover:bg-gray-100 transition-colors focus:ring-4 focus:ring-accent" title="Toggle Sound" aria-label="Toggle sound effects">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.617.835L4.29 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.29l4.093-3.835a1 1 0 011 .911zM13 8.658V11.342a1 1 0 01-.293.707l-1.414 1.414a1 1 0 11-1.414-1.414l.707-.707a1 1 0 010-1.414l-.707-.707a1 1 0 111.414-1.414L13 8.658z"></path>
+                    </svg>
+                </button>
+                <button id="mobileMenuToggle" class="md:hidden p-3 rounded-full hover:bg-gray-100 transition-colors focus:ring-4 focus:ring-accent" aria-label="Toggle mobile menu" aria-expanded="false">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white/95 backdrop-blur-md border-t border-gray-200 px-4 py-4" role="menu">
+            <div class="flex flex-col space-y-4">
+                <a href="#lessons" class="hover:text-primary transition-colors focus:ring-4 focus:ring-accent rounded-lg px-3 py-2" role="menuitem">Lessons</a>
+                <a href="#alphabet" class="hover:text-primary transition-colors focus:ring-4 focus:ring-accent rounded-lg px-3 py-2" role="menuitem">Alphabet</a>
+                <a href="#simulation" class="hover:text-primary transition-colors focus:ring-4 focus:ring-accent rounded-lg px-3 py-2" role="menuitem">Practice</a>
+                <a href="#vocabulary" class="hover:text-primary transition-colors focus:ring-4 focus:ring-accent rounded-lg px-3 py-2" role="menuitem">Vocabulary</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center justify-center relative overflow-hidden" role="banner">
+        <div class="absolute inset-0 bg-gradient-to-br from-white/85 via-blue-50/70 to-silver/50"></div>
+        <div class="container mx-auto px-4 text-center relative z-10" id="main-content">
+            <div class="floating-animation">
+                <h1 class="text-6xl md:text-8xl font-bold mb-8 gradient-text leading-tight">
+                    Hebrew Master — Learn in Short Iterative Steps
+                </h1>
+            </div>
+            <p class="text-xl md:text-2xl text-gray-600 mb-16 max-w-4xl mx-auto leading-relaxed">
+                Accessible lessons for anyone — Turbocharge your Modern Hebrew learning anywhere, anytime with our comprehensive platform featuring progressive curriculum, gamified achievements, and cultural immersion.
+            </p>
+            
+            <!-- Progress Dashboard -->
+            <div id="progressDashboard" class="max-w-4xl mx-auto mb-16 p-10 bg-white/90 backdrop-blur-lg rounded-3xl shadow-2xl border border-white/20" role="region" aria-label="Learning Progress Dashboard">
+                <div class="flex justify-between items-center mb-8">
+                    <h2 class="text-3xl font-bold gradient-text">Your Hebrew Journey</h2>
+                    <div class="flex items-center space-x-4">
+                        <div class="token-pulse">
+                            <span class="text-accent font-bold text-3xl" id="tokenCount" aria-label="Tokens earned">0</span>
+                            <span class="text-lg text-gray-500">tokens</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-5 mb-8 overflow-hidden">
+                    <div id="progressBar" class="progress-bar h-5 rounded-full transition-all duration-1000 ease-out" style="width: 0%" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Course completion progress"></div>
+                </div>
+                <div class="flex justify-between text-xl text-gray-700">
+                    <span>Lessons Completed: <span id="completedLessons" class="font-bold text-primary">0</span>/6</span>
+                    <span id="progressPercent" class="font-bold text-accent">0%</span>
+                </div>
+                <div class="mt-6 text-base text-gray-500">
+                    <span id="motivationalMessage">Begin your Hebrew mastery today!</span>
+                </div>
+            </div>
+            
+            <a href="#lessons" class="inline-flex items-center px-12 py-6 bg-gradient-to-r from-primary to-accent text-white rounded-full text-2xl font-semibold hover:from-primary/90 hover:to-accent/90 transition-all duration-300 shadow-2xl hover:shadow-3xl transform hover:scale-105 focus:ring-4 focus:ring-accent/50" role="button" aria-label="Start learning Hebrew lessons">
+                Begin Your Hebrew Mastery
+                <svg class="ml-4 w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Lessons Section -->
+    <section id="lessons" class="py-32 bg-gradient-to-b from-gray-50 to-white" role="main">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-24">
+                <h2 class="text-6xl font-bold mb-8 gradient-text">Comprehensive Hebrew Curriculum</h2>
+                <p class="text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                    Master Modern Hebrew through our expertly crafted progressive learning system. Each lesson builds upon previous knowledge with interactive content and comprehensive assessment.
+                </p>
+                <div class="mt-12 flex flex-wrap justify-center gap-6 text-base text-gray-500">
+                    <span class="bg-white px-6 py-3 rounded-full shadow-lg">✨ Progressive Complexity</span>
+                    <span class="bg-white px-6 py-3 rounded-full shadow-lg">🎯 Focused Learning</span>
+                    <span class="bg-white px-6 py-3 rounded-full shadow-lg">🏆 Achievement System</span>
+                    <span class="bg-white px-6 py-3 rounded-full shadow-lg">📚 Cultural Context</span>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+                <!-- Lesson cards will be dynamically generated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Hebrew Alphabet Section -->
+    <section id="alphabet" class="py-32" role="region" aria-label="Hebrew Alphabet Learning">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-24">
+                <h2 class="text-6xl font-bold mb-8 gradient-text">Hebrew Alphabet Mastery (אלף־בית עברי)</h2>
+                <p class="text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                    Master all 22 letters of the Hebrew alphabet with comprehensive transliterations and cultural insights. Each letter includes detailed information and practical examples.
+                </p>
+                <div class="mt-12 p-8 bg-blue-50 rounded-3xl max-w-3xl mx-auto">
+                    <p class="text-lg text-blue-700">
+                        <strong>Hebrew Reading Direction:</strong> Hebrew text reads from right to left (←). This ancient Semitic tradition connects modern learners to thousands of years of linguistic heritage.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-8 max-w-7xl mx-auto">
+                <!-- Alphabet cards will be dynamically generated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Writing Simulation Section -->
+    <section id="simulation" class="py-32 bg-gradient-to-b from-gray-50 to-white" role="region" aria-label="Hebrew Writing Practice">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-24">
+                <h2 class="text-6xl font-bold mb-8 gradient-text">Interactive Hebrew Writing Studio</h2>
+                <p class="text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                    Perfect your Hebrew handwriting with our advanced practice environment. Experience real-time feedback and guided instruction for authentic Hebrew script mastery.
+                </p>
+            </div>
+            
+            <div class="max-w-6xl mx-auto">
+                <div class="simulation-area rounded-3xl shadow-2xl p-12 border border-gray-100">
+                    <div class="mb-10">
+                        <label for="practiceSelect" class="block text-xl font-semibold mb-6 text-gray-700">Select your practice focus:</label>
+                        <select id="practiceSelect" class="w-full p-5 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-accent/50 focus:border-accent text-lg transition-all duration-300" aria-label="Select practice category">
+                            <option value="alphabet">Hebrew Alphabet Letters (אלפים)</option>
+                            <option value="words">Essential Words (מילים חשובות)</option>
+                            <option value="sentences">Basic Sentences (משפטים פשוטים)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-12">
+                        <div class="flex justify-between items-center mb-8">
+                            <h3 class="text-3xl font-bold text-gray-800">
+                                Practice: <span id="currentPractice" class="text-primary">א (Aleph)</span>
+                            </h3>
+                            <div class="text-base text-gray-500 bg-gray-100 px-6 py-3 rounded-full">
+                                Hebrew Direction: ← Right to Left
+                            </div>
+                        </div>
+                        
+                        <div class="writing-canvas rounded-2xl p-16 flex flex-col items-center justify-center text-gray-500 relative overflow-hidden">
+                            <div class="hebrew-writing-guide absolute inset-0 opacity-20"></div>
+                            <div class="text-center z-10">
+                                <p class="mb-8 text-xl">Use your mouse, finger, or stylus to practice Hebrew writing</p>
+                                <div id="practiceDisplay" class="hebrew-letter mb-10 will-change-transform">א</div>
+                                <div class="flex flex-wrap justify-center gap-6">
+                                    <button id="clearCanvas" class="px-8 py-4 bg-secondary text-white rounded-xl hover:bg-gray-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 focus:ring-4 focus:ring-gray-400/50">
+                                        <svg class="w-6 h-6 inline mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                        </svg>
+                                        Clear Canvas
+                                    </button>
+                                    <button id="showGuide" class="px-8 py-4 bg-accent text-white rounded-xl hover:bg-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 focus:ring-4 focus:ring-accent/50">
+                                        <svg class="w-6 h-6 inline mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                        Writing Guide
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-between items-center">
+                        <button id="prevPractice" class="px-10 py-5 bg-gray-200 text-gray-700 rounded-xl hover:bg-gray-300 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 focus:ring-4 focus:ring-gray-400/50">
+                            <svg class="w-6 h-6 inline mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                            </svg>
+                            Previous
+                        </button>
+                        
+                        <div class="text-center">
+                            <div id="practiceCounter" class="text-base text-gray-500 mb-3">1 of 22</div>
+                            <div class="w-40 bg-gray-200 rounded-full h-3">
+                                <div id="practiceProgress" class="bg-gradient-to-r from-primary to-accent h-3 rounded-full transition-all duration-500" style="width: 4.5%"></div>
+                            </div>
+                        </div>
+                        
+                        <button id="nextPractice" class="px-10 py-5 bg-gradient-to-r from-primary to-accent text-white rounded-xl hover:from-primary/90 hover:to-accent/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 focus:ring-4 focus:ring-accent/50">
+                            Next
+                            <svg class="w-6 h-6 inline ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vocabulary Section -->
+    <section id="vocabulary" class="py-32" role="region" aria-label="Hebrew Vocabulary and Grammar">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-24">
+                <h2 class="text-6xl font-bold mb-8 gradient-text">Essential Hebrew Vocabulary & Grammar</h2>
+                <p class="text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                    Build your Hebrew foundation with essential vocabulary, grammatical structures, and linguistic insights. Understand the patterns that make Modern Hebrew a living, dynamic language.
+                </p>
+            </div>
+            
+            <div class="max-w-7xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-12 mb-20">
+                    <!-- Verbs -->
+                    <div class="bg-white rounded-3xl shadow-2xl p-12 card-hover border-2 border-gray-100">
+                        <div class="text-center mb-10">
+                            <div class="w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-6">
+                                <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-3xl font-bold text-primary mb-3">Action Verbs</h3>
+                            <p class="text-gray-600">Essential Hebrew verbs for daily communication and expression</p>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="flex justify-between items-center py-4 px-5 bg-gray-50 rounded-xl transition-all duration-300 hover:bg-gray-100">
+                                <div class="hebrew-text text-xl font-semibold">להיות</div>
+                                <div class="text-base text-gray-600 ltr">to be</div>
+                            </div>
+                            <div class="flex justify-between items-center py-4 px-5 bg-gray-50 rounded-xl transition-all duration-300 hover:bg-gray-100">
+                                <div class="hebrew-text text-xl font-semibold">לאכול</div>
+                                <div class="text-base text-gray-600 ltr">to eat</div>
+                            </div>
+                            <div class="flex justify-between items-center py-4 px-5 bg-gray-50 rounded-xl transition-all duration-300 hover:bg-gray-100">
+                                <div class="hebrew-text text-xl font-semibold">ללכת</div>
+                                <div class="text-base text-gray-600 ltr">to go</div>
+                            </div>
+                            <div class="flex justify-between items-center py-4 px-5 bg-gray-50 rounded-xl transition-all duration-300 hover:bg-gray-100">
+                                <div class="hebrew-text text-xl font-semibold">לראות</div>
+                                <div class="text-base text-gray-600 ltr">to see</div>
+                            </div>
+                            <div class="flex justify-between items-center py-4 px-5 bg-gray-50 rounded-xl transition-all duration-300 hover:bg-gray-100">
+                                <div class="hebrew-text text-xl font-semibold">לדבר</div>
+                                <div class="text-base text-gray-600 ltr">to speak</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Adjectives -->
+                    <div class="bg-white rounded-3xl shadow-2xl p-12 card-hover border-2 border-gray-100">
+                        <div class="text-center mb-10">
+                            <div class="w-20 h-20 bg-gradient-to-br from-accent to-success rounded-full flex items-center justify-center mx-auto mb-6">
+                                <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-3xl font-bold text-accent mb-3">Descriptive Words</h3>
+                            <p class="text-gray-600">Common adjectives for describing people, places, and experiences</p>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="flex justify-between items-center py-4 px-5 bg-gray-50 rounded-xl transition-all duration-300 hover:bg-gray-100">
+                                <div class="hebrew-text text-xl font-semibold">טוב</div>
+                                <div class="text-base text-gray-600 ltr">good</div>
+                            </div>
+                            <div class="flex justify-between items-center py-4 px-5 bg-gray-50 rounded-xl transition-all duration-300 hover:bg-gray-100">
+                                <div class="hebrew-text text-xl font-semibold">גדול</div>
+                                <div class="text-base text-gray-600 ltr">big</div>
+                            </div>
+                            <div class="flex justify-between items-center py-4 px-5 bg-gray-50 rounded-xl transition-all duration-300 hover:bg-gray-100">
+                                <div class="hebrew-text text-xl font-semibold">קטן</div>
+                                <div class="text-base text-gray-600 ltr">small</div>
+                            </div>
+                            <div class="flex justify-between items-center py-4 px-5 bg-gray-50 rounded-xl transition-all duration-300 hover:bg-gray-100">
+                                <div class="hebrew-text text-xl font-semibold">יפה</div>
+                                <div class="text-base text-gray-600 ltr">beautiful</div>
+                            </div>
+                            <div class="flex justify-between items-center py-4 px-5 bg-gray-50 rounded-xl transition-all duration-300 hover:bg-gray-100">
+                                <div class="hebrew-text text-xl font-semibold">חדש</div>
+                                <div class="text-base text-gray-600 ltr">new</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Sentence Structure -->
+                    <div class="bg-white rounded-3xl shadow-2xl p-12 card-hover border-2 border-gray-100">
+                        <div class="text-center mb-10">
+                            <div class="w-20 h-20 bg-gradient-to-br from-success to-warning rounded-full flex items-center justify-center mx-auto mb-6">
+                                <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-3xl font-bold text-success mb-3">Grammar Structure</h3>
+                            <p class="text-gray-600">Hebrew sentence patterns and essential grammatical concepts</p>
+                        </div>
+                        <div class="space-y-8">
+                            <div class="p-6 bg-gradient-to-r from-success/10 to-success/5 rounded-xl">
+                                <h4 class="font-bold mb-4 text-success text-lg">Basic Word Order:</h4>
+                                <p class="text-base text-gray-600 mb-4">Verb + Subject + Object (VSO)</p>
+                                <div class="hebrew-text text-lg mb-3 p-3 bg-white rounded-lg">אוכל דני תפוח</div>
+                                <p class="text-sm text-gray-500 ltr italic">Danny eats an apple</p>
+                            </div>
+                            <div class="p-6 bg-gradient-to-r from-accent/10 to-accent/5 rounded-xl">
+                                <h4 class="font-bold mb-4 text-accent text-lg">Definite Article:</h4>
+                                <p class="text-base text-gray-600 mb-4">ה- prefix (the)</p>
+                                <div class="space-y-3">
+                                    <div class="flex justify-between p-2 bg-white rounded-lg">
+                                        <span class="hebrew-text">הבית</span>
+                                        <span class="text-sm text-gray-500 ltr">the house</span>
+                                    </div>
+                                    <div class="flex justify-between p-2 bg-white rounded-lg">
+                                        <span class="hebrew-text">הילד</span>
+                                        <span class="text-sm text-gray-500 ltr">the child</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-6 bg-gradient-to-r from-warning/10 to-warning/5 rounded-xl">
+                                <h4 class="font-bold mb-4 text-warning text-lg">Question Words:</h4>
+                                <div class="space-y-3 text-base">
+                                    <div class="flex justify-between p-2 bg-white rounded-lg">
+                                        <span class="hebrew-text">מה?</span>
+                                        <span class="ltr text-gray-500">what?</span>
+                                    </div>
+                                    <div class="flex justify-between p-2 bg-white rounded-lg">
+                                        <span class="hebrew-text">איפה?</span>
+                                        <span class="ltr text-gray-500">where?</span>
+                                    </div>
+                                    <div class="flex justify-between p-2 bg-white rounded-lg">
+                                        <span class="hebrew-text">מתי?</span>
+                                        <span class="ltr text-gray-500">when?</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hebrew Language Heritage -->
+                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-3xl p-12 text-center">
+                    <h3 class="text-4xl font-bold mb-6 gradient-text">Hebrew Language Heritage</h3>
+                    <p class="text-xl text-gray-700 leading-relaxed max-w-5xl mx-auto mb-8">
+                        Modern Hebrew (עברית חדשה) represents one of history's most remarkable linguistic revivals. From ancient Canaanite origins through Paleo-Hebrew scripts to today's vibrant spoken language, Hebrew connects learners to millennia of cultural heritage. Unlike other Semitic languages, Modern Hebrew successfully bridges ancient grammatical structures with contemporary global communication needs.
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-6 text-base">
+                        <span class="bg-white text-gray-700 px-6 py-3 rounded-full shadow-lg">📜 Ancient Canaanite Roots</span>
+                        <span class="bg-white text-gray-700 px-6 py-3 rounded-full shadow-lg">🌍 Modern Revival Success</span>
+                        <span class="bg-white text-gray-700 px-6 py-3 rounded-full shadow-lg">🎯 Semitic Structure</span>
+                        <span class="bg-white text-gray-700 px-6 py-3 rounded-full shadow-lg">✨ Living Language</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-hebrewBlue to-primary text-white py-20" role="contentinfo">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <div class="flex items-center justify-center space-x-4 mb-8">
+                    <div class="w-16 h-16 bg-gradient-to-br from-accent to-success rounded-full flex items-center justify-center shadow-lg">
+                        <span class="text-white font-bold text-2xl font-hebrew" aria-hidden="true">ח</span>
+                    </div>
+                    <div>
+                        <span class="text-3xl font-bold">Hebrew Master Pro</span>
+                        <div class="text-lg opacity-80">Your Gateway to Hebrew Excellence</div>
+                    </div>
+                </div>
+                <p class="text-blue-100 mb-12 max-w-3xl mx-auto leading-relaxed text-lg">
+                    Democratizing Modern Hebrew language learning through innovative, interactive, and culturally immersive educational experiences. 
+                    Join thousands of learners mastering Hebrew with our proven progressive methodology.
+                </p>
+                <div class="grid md:grid-cols-3 gap-12 mb-12 max-w-5xl mx-auto">
+                    <div>
+                        <h4 class="font-bold mb-4 text-xl">Learning Features</h4>
+                        <ul class="space-y-3 text-base text-blue-100">
+                            <li>• Progressive Curriculum Design</li>
+                            <li>• Interactive Practice Areas</li>
+                            <li>• Comprehensive Assessments</li>
+                            <li>• Real-time Progress Tracking</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold mb-4 text-xl">Curriculum Content</h4>
+                        <ul class="space-y-3 text-base text-blue-100">
+                            <li>• Complete Hebrew Alphabet</li>
+                            <li>• Essential Vocabulary Building</li>
+                            <li>• Grammar Fundamentals</li>
+                            <li>• Cultural Context Integration</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold mb-4 text-xl">Platform Benefits</h4>
+                        <ul class="space-y-3 text-base text-blue-100">
+                            <li>• Mobile Responsive Design</li>
+                            <li>• Offline Progress Storage</li>
+                            <li>• Accessibility Compliant</li>
+                            <li>• Professional Quality</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-t border-blue-300/30 pt-8">
+                    <p class="text-base text-blue-200 mb-4">
+                        &copy; 2024 Hebrew Master Pro. Crafted with dedication for Hebrew language enthusiasts worldwide.
+                    </p>
+                    <div class="hebrew-text text-2xl mb-2">בהצלחה בלימודים!</div>
+                    <div class="text-sm opacity-75">(Good luck with your studies!)</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <!-- Login Modal -->
+    <div id="loginModal" class="hidden fixed inset-0 modal z-50 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="login-title">
+        <div class="bg-white rounded-3xl shadow-2xl max-w-lg w-full p-10 fade-in border-2 border-gray-200">
+            <h3 id="login-title" class="text-4xl font-bold mb-6 gradient-text text-center">Welcome Back!</h3>
+            <p class="text-gray-600 mb-10 text-center leading-relaxed text-lg">
+                Please enter your credentials to continue your Hebrew learning journey and access advanced lessons.
+            </p>
+            <form id="loginForm" class="space-y-8">
+                <div>
+                    <label for="username" class="block text-lg font-semibold mb-4 text-gray-700">Username</label>
+                    <input type="text" id="username" class="w-full p-5 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-accent/50 focus:border-accent text-lg transition-all duration-300" required aria-describedby="username-help">
+                    <div id="username-help" class="text-sm text-gray-500 mt-2">Choose any username you'd like</div>
+                </div>
+                <div>
+                    <label for="password" class="block text-lg font-semibold mb-4 text-gray-700">5-Digit Password</label>
+                    <input type="password" id="password" pattern="[0-9]{5}" class="w-full p-5 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-accent/50 focus:border-accent text-lg transition-all duration-300" maxlength="5" required aria-describedby="password-help">
+                    <div id="password-help" class="text-sm text-gray-500 mt-2">Enter any 5 digits (e.g., 12345)</div>
+                </div>
+                <div class="flex justify-end space-x-6 pt-6">
+                    <button type="button" onclick="closeModal('loginModal')" class="px-8 py-4 text-gray-600 hover:bg-gray-100 rounded-xl transition-all duration-300 focus:ring-4 focus:ring-gray-400/50">Cancel</button>
+                    <button type="submit" class="px-10 py-4 bg-gradient-to-r from-primary to-accent text-white hover:from-primary/90 hover:to-accent/90 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 focus:ring-4 focus:ring-accent/50">
+                        Continue Learning
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Quiz Modal -->
+    <div id="quizModal" class="hidden fixed inset-0 modal z-50 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="quiz-title">
+        <div class="bg-white rounded-3xl shadow-2xl max-w-4xl w-full p-10 fade-in border-2 border-gray-200 max-h-90vh overflow-y-auto">
+            <div class="flex justify-between items-center mb-10">
+                <h3 id="quiz-title" class="text-4xl font-bold gradient-text" id="quizTitle">Lesson Quiz</h3>
+                <div class="text-right">
+                    <span class="text-lg text-gray-500 block" id="quizProgress">Question 1 of 3</span>
+                    <div class="w-40 bg-gray-200 rounded-full h-3 mt-3">
+                        <div id="quizProgressBar" class="bg-gradient-to-r from-primary to-accent h-3 rounded-full transition-all duration-500" style="width: 33.33%"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="quizContent" aria-live="polite">
+                <!-- Quiz content will be dynamically inserted -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Celebration Modal -->
+    <div id="celebrationModal" class="hidden fixed inset-0 modal z-50 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="celebration-title">
+        <div class="bg-white rounded-3xl shadow-2xl max-w-2xl w-full p-12 text-center celebration border-2 border-gray-200">
+            <div class="text-9xl mb-8" aria-hidden="true">🎉</div>
+            <h3 id="celebration-title" class="text-5xl font-bold mb-6 gradient-text">מזל טוב!</h3>
+            <p class="text-xl text-gray-400 mb-4">(Mazel Tov!)</p>
+            <p class="text-gray-600 mb-10 text-xl leading-relaxed" id="celebrationMessage">You've completed the lesson!</p>
+            <div class="flex justify-center items-center space-x-4 mb-10 p-8 bg-gradient-to-r from-accent/10 to-success/10 rounded-2xl">
+                <div class="text-accent font-bold text-5xl token-pulse">+10</div>
+                <div class="text-2xl font-semibold text-gray-700">tokens earned!</div>
+            </div>
+            <button onclick="closeModal('celebrationModal')" class="px-12 py-5 bg-gradient-to-r from-success to-accent text-white hover:from-success/90 hover:to-accent/90 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 focus:ring-4 focus:ring-success/50 text-xl font-semibold">
+                Continue Learning Journey
+            </button>
+        </div>
+    </div>
+
+    <!-- Live Region for Screen Reader Announcements -->
+    <div id="liveRegion" aria-live="polite" aria-atomic="true" class="sr-only"></div>
+
+    <script>
+        // Application State Management
+        let appState = {
+            soundEnabled: true,
+            currentUser: null,
+            completedLessons: [],
+            totalTokens: 0,
+            currentQuiz: null,
+            currentPractice: 0,
+            audioContext: null
+        };
+
+        // Load state from localStorage
+        function loadState() {
+            try {
+                const saved = localStorage.getItem('hebrewMasterState');
+                if (saved) {
+                    const parsedState = JSON.parse(saved);
+                    appState = { ...appState, ...parsedState };
+                }
+            } catch (error) {
+                console.warn('Failed to load saved state:', error);
+            }
+            updateUI();
+        }
+
+        // Save state to localStorage
+        function saveState() {
+            try {
+                const stateToSave = {
+                    soundEnabled: appState.soundEnabled,
+                    currentUser: appState.currentUser,
+                    completedLessons: appState.completedLessons,
+                    totalTokens: appState.totalTokens,
+                    currentPractice: appState.currentPractice
+                };
+                localStorage.setItem('hebrewMasterState', JSON.stringify(stateToSave));
+            } catch (error) {
+                console.warn('Failed to save state:', error);
+            }
+        }
+
+        // Hebrew Lessons Data
+        const lessons = [
+            {
+                id: 1,
+                title: "Hebrew Alphabet Foundation",
+                description: "Master the first 8 letters of the Hebrew alphabet with comprehensive cultural context",
+                estimatedTime: "18 minutes",
+                difficulty: "Beginner",
+                content: `
+                    <div class="mb-8">
+                        <h3 class="text-3xl font-bold mb-8 gradient-text">Welcome to Hebrew Mastery!</h3>
+                        <p class="mb-8 text-xl leading-relaxed">The Hebrew alphabet (אלף־בית) consists of 22 letters, all consonants. Hebrew reads from right to left, connecting you to an ancient linguistic tradition. Let's begin with the foundational letters:</p>
+                        
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
+                            <div class="text-center p-8 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl border-2 border-blue-100">
+                                <div class="hebrew-letter text-5xl mb-4">א</div>
+                                <div class="text-xl font-bold text-primary mb-2">Aleph</div>
+                                <div class="text-base text-gray-600">Silent letter / vowel placeholder</div>
+                                <div class="text-sm text-blue-600 mt-3">Foundation of Hebrew writing</div>
+                            </div>
+                            <div class="text-center p-8 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl border-2 border-blue-100">
+                                <div class="hebrew-letter text-5xl mb-4">ב</div>
+                                <div class="text-xl font-bold text-primary mb-2">Bet/Vet</div>
+                                <div class="text-base text-gray-600">B sound (with dot) / V sound</div>
+                                <div class="text-sm text-blue-600 mt-3">Like English B or V</div>
+                            </div>
+                            <div class="text-center p-8 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl border-2 border-blue-100">
+                                <div class="hebrew-letter text-5xl mb-4">ג</div>
+                                <div class="text-xl font-bold text-primary mb-2">Gimel</div>
+                                <div class="text-base text-gray-600">G sound (hard G)</div>
+                                <div class="text-sm text-blue-600 mt-3">Like English G in "go"</div>
+                            </div>
+                            <div class="text-center p-8 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl border-2 border-blue-100">
+                                <div class="hebrew-letter text-5xl mb-4">ד</div>
+                                <div class="text-xl font-bold text-primary mb-2">Dalet</div>
+                                <div class="text-base text-gray-600">D sound</div>
+                                <div class="text-sm text-blue-600 mt-3">Like English D</div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-yellow-50 border border-yellow-200 rounded-2xl p-8 mb-8">
+                            <h4 class="text-2xl font-bold text-yellow-800 mb-4">💡 Master Learning Strategies:</h4>
+                            <ul class="space-y-3 text-yellow-700 text-lg">
+                                <li>• Hebrew letters can change form based on their position in words</li>
+                                <li>• Some letters have different sounds with or without a dot (dagesh)</li>
+                                <li>• Practice writing from right to left to build muscle memory</li>
+                                <li>• Focus on letter shapes and sounds before studying vowels</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8">
+                            <h4 class="text-2xl font-bold mb-4 text-primary">Cultural Heritage Connection:</h4>
+                            <p class="text-gray-700 leading-relaxed text-lg">
+                                These four letters begin countless important Hebrew words. For example, אבא (Abba) means "father," 
+                                בית (Bayit) means "house," גן (Gan) means "garden," and דלת (Delet) means "door." 
+                                Learning these foundational letters opens pathways to understanding Hebrew roots and linguistic patterns 
+                                that have shaped Semitic languages for millennia.
+                            </p>
+                        </div>
+                    </div>
+                `,
+                quiz: [
+                    {
+                        question: "What is the unique characteristic of Hebrew writing direction compared to English?",
+                        options: [
+                            "Hebrew reads from left to right",
+                            "Hebrew reads from right to left",
+                            "Hebrew reads from top to bottom",
+                            "Hebrew has no specific direction"
+                        ],
+                        correct: 1,
+                        explanation: "Hebrew is written and read from right to left, which is opposite to English and most European languages. This ancient tradition connects modern learners to thousands of years of Semitic linguistic heritage."
+                    },
+                    {
+                        question: "Which Hebrew letter serves as a silent placeholder for vowel sounds?",
+                        options: ["Bet (ב)", "Gimel (ג)", "Aleph (א)", "Dalet (ד)"],
+                        correct: 2,
+                        explanation: "Aleph (א) is typically silent in Modern Hebrew and often serves as a placeholder for vowel sounds. It's the first letter of the Hebrew alphabet and foundational to Hebrew writing."
+                    },
+                    {
+                        question: "How many letters comprise the complete Hebrew alphabet?",
+                        options: ["20", "22", "24", "26"],
+                        correct: 1,
+                        explanation: "The Hebrew alphabet consists of 22 letters, all of which are consonants. This is fewer than the English alphabet but sufficient for expressing all Hebrew sounds when combined with vowel markings."
+                    }
+                ]
+            },
+            {
+                id: 2,
+                title: "Expanding Hebrew Letters",
+                description: "Continue with letters Hey through Chet, building your Hebrew reading foundation",
+                estimatedTime: "20 minutes",
+                difficulty: "Beginner",
+                content: `
+                    <div class="mb-8">
+                        <h3 class="text-3xl font-bold mb-8 gradient-text">Expanding Your Hebrew Foundation</h3>
+                        <p class="mb-8 text-xl leading-relaxed">Now that you've mastered the first four letters, let's continue with the next essential Hebrew letters. These letters form the backbone of countless Hebrew words and phrases:</p>
+                        
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
+                            <div class="text-center p-8 bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl border-2 border-green-100">
+                                <div class="hebrew-letter text-5xl mb-4">ה</div>
+                                <div class="text-xl font-bold text-success mb-2">Hey</div>
+                                <div class="text-base text-gray-600">H sound (soft)</div>
+                                <div class="text-sm text-green-600 mt-3">Often used for "the"</div>
+                            </div>
+                            <div class="text-center p-8 bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl border-2 border-green-100">
+                                <div class="hebrew-letter text-5xl mb-4">ו</div>
+                                <div class="text-xl font-bold text-success mb-2">Vav</div>
+                                <div class="text-base text-gray-600">V, O, or U sounds</div>
+                                <div class="text-sm text-green-600 mt-3">Versatile vowel letter</div>
+                            </div>
+                            <div class="text-center p-8 bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl border-2 border-green-100">
+                                <div class="hebrew-letter text-5xl mb-4">ז</div>
+                                <div class="text-xl font-bold text-success mb-2">Zayin</div>
+                                <div class="text-base text-gray-600">Z sound</div>
+                                <div class="text-sm text-green-600 mt-3">Like English Z</div>
+                            </div>
+                            <div class="text-center p-8 bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl border-2 border-green-100">
+                                <div class="hebrew-letter text-5xl mb-4">ח</div>
+                                <div class="text-xl font-bold text-success mb-2">Chet</div>
+                                <div class="text-base text-gray-600">CH sound (guttural)</div>
+                                <div class="text-sm text-green-600 mt-3">Like German "ach"</div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-blue-50 border border-blue-200 rounded-2xl p-8 mb-8">
+                            <h4 class="text-2xl font-bold text-blue-800 mb-6">🔤 Letter Combinations in Practice:</h4>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="space-y-4">
+                                    <div class="p-4 bg-white rounded-lg">
+                                        <div class="hebrew-text text-xl font-bold mb-2">הוא</div>
+                                        <div class="text-base text-gray-600">He (pronoun)</div>
+                                    </div>
+                                    <div class="p-4 bg-white rounded-lg">
+                                        <div class="hebrew-text text-xl font-bold mb-2">זה</div>
+                                        <div class="text-base text-gray-600">This (demonstrative)</div>
+                                    </div>
+                                </div>
+                                <div class="space-y-4">
+                                    <div class="p-4 bg-white rounded-lg">
+                                        <div class="hebrew-text text-xl font-bold mb-2">חג</div>
+                                        <div class="text-base text-gray-600">Holiday</div>
+                                    </div>
+                                    <div class="p-4 bg-white rounded-lg">
+                                        <div class="hebrew-text text-xl font-bold mb-2">דוד</div>
+                                        <div class="text-base text-gray-600">David (name)</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-accent/10 to-success/10 rounded-2xl p-8">
+                            <h4 class="text-2xl font-bold mb-4 text-accent">Advanced Language Insights:</h4>
+                            <p class="text-gray-700 leading-relaxed text-lg">
+                                Notice how Vav (ו) demonstrates Hebrew's sophisticated dual nature—it can function as a consonant (V sound) or represent vowel sounds (O or U). 
+                                This versatility makes it one of Hebrew's most important letters. Hey (ה) frequently appears as a prefix meaning "the," 
+                                functioning similarly to English articles. Understanding these fundamental patterns accelerates your Hebrew reading comprehension 
+                                and connects you to the logical structure underlying this ancient yet modern language.
+                            </p>
+                        </div>
+                    </div>
+                `,
+                quiz: [
+                    {
+                        question: "Which Hebrew letter demonstrates dual functionality as both consonant and vowel?",
+                        options: ["Hey (ה)", "Vav (ו)", "Zayin (ז)", "Chet (ח)"],
+                        correct: 1,
+                        explanation: "Vav (ו) is remarkable because it can function as a 'V' consonant or represent 'O' and 'U' vowel sounds, making it one of Hebrew's most versatile and important letters."
+                    },
+                    {
+                        question: "What distinctive sound does Chet (ח) produce?",
+                        options: ["Hard K sound", "Soft H sound", "Guttural CH sound", "S sound"],
+                        correct: 2,
+                        explanation: "Chet (ח) produces a guttural 'CH' sound, similar to the German 'ach' or Scottish 'loch'. This sound doesn't exist in English and is characteristic of Semitic languages."
+                    },
+                    {
+                        question: "Which letter commonly functions as a prefix meaning 'the' in Hebrew?",
+                        options: ["Hey (ה)", "Vav (ו)", "Zayin (ז)", "Chet (ח)"],
+                        correct: 0,
+                        explanation: "Hey (ה) frequently appears as a prefix (ה-) to indicate 'the' in Hebrew, making it equivalent to the English definite article and essential for Hebrew grammar."
+                    }
+                ]
+            },
+            {
+                id: 3,
+                title: "Essential Hebrew Greetings",
+                description: "Master fundamental greetings and polite expressions for authentic Hebrew communication",
+                estimatedTime: "22 minutes",
+                difficulty: "Beginner-Intermediate",
+                content: `
+                    <div class="mb-8">
+                        <h3 class="text-3xl font-bold mb-8 gradient-text">Hebrew Greetings & Cultural Expressions</h3>
+                        <p class="mb-8 text-xl leading-relaxed">Greetings form the foundation of human connection. Hebrew greetings carry profound cultural and historical significance, often incorporating wishes for peace and well-being. Master these essential expressions:</p>
+                        
+                        <div class="space-y-8 mb-10">
+                            <div class="p-8 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl border-l-4 border-blue-500">
+                                <div class="flex justify-between items-center mb-4">
+                                    <div class="hebrew-text text-3xl font-bold text-primary">שלום</div>
+                                </div>
+                                <div class="text-2xl font-semibold text-gray-800 mb-3">Shalom</div>
+                                <div class="text-lg text-gray-600 mb-4">Hello / Goodbye / Peace</div>
+                                <div class="text-base text-blue-700 leading-relaxed">
+                                    The most versatile Hebrew greeting. Literally meaning "peace," it can be used anytime. 
+                                    Both a greeting and farewell, making it perfect for any social situation and embodying Hebrew culture's emphasis on peace.
+                                </div>
+                            </div>
+                            
+                            <div class="p-8 bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl border-l-4 border-green-500">
+                                <div class="flex justify-between items-center mb-4">
+                                    <div class="hebrew-text text-3xl font-bold text-success">בוקר טוב</div>
+                                </div>
+                                <div class="text-2xl font-semibold text-gray-800 mb-3">Boker Tov</div>
+                                <div class="text-lg text-gray-600 mb-4">Good Morning</div>
+                                <div class="text-base text-green-700 leading-relaxed">
+                                    Used until approximately 11 AM. Traditional response is "Boker Or" (morning light) or simply "Boker Tov" in return. 
+                                    Demonstrates Hebrew's poetic nature in everyday expressions.
+                                </div>
+                            </div>
+                            
+                            <div class="p-8 bg-gradient-to-r from-purple-50 to-violet-50 rounded-2xl border-l-4 border-purple-500">
+                                <div class="flex justify-between items-center mb-4">
+                                    <div class="hebrew-text text-3xl font-bold text-purple-600">ערב טוב</div>
+                                </div>
+                                <div class="text-2xl font-semibold text-gray-800 mb-3">Erev Tov</div>
+                                <div class="text-lg text-gray-600 mb-4">Good Evening</div>
+                                <div class="text-base text-purple-700 leading-relaxed">
+                                    Used from late afternoon (around 4-5 PM) onwards. "Erev" literally means evening or dusk, 
+                                    connecting speakers to the natural rhythm of the day in Hebrew-speaking culture.
+                                </div>
+                            </div>
+                            
+                            <div class="p-8 bg-gradient-to-r from-orange-50 to-amber-50 rounded-2xl border-l-4 border-orange-500">
+                                <div class="flex justify-between items-center mb-4">
+                                    <div class="hebrew-text text-3xl font-bold text-orange-600">לילה טוב</div>
+                                </div>
+                                <div class="text-2xl font-semibold text-gray-800 mb-3">Laila Tov</div>
+                                <div class="text-lg text-gray-600 mb-4">Good Night</div>
+                                <div class="text-base text-orange-700 leading-relaxed">
+                                    Used when parting for the night or wishing someone peaceful sleep. 
+                                    Often accompanied by warm wishes for sweet dreams in Hebrew culture.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-yellow-50 to-amber-50 rounded-2xl p-8 mb-8">
+                            <h4 class="text-2xl font-bold text-yellow-800 mb-6">🌟 Cultural Usage Guidelines:</h4>
+                            <div class="grid md:grid-cols-2 gap-8 text-base">
+                                <div>
+                                    <h5 class="font-bold mb-3 text-yellow-700">Formal Contexts:</h5>
+                                    <ul class="space-y-2 text-yellow-600">
+                                        <li>• Use "Shalom" with unfamiliar people</li>
+                                        <li>• Add respectful titles when appropriate</li>
+                                        <li>• Time-specific greetings show cultural awareness</li>
+                                        <li>• Maintain eye contact and smile warmly</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold mb-3 text-yellow-700">Informal Situations:</h5>
+                                    <ul class="space-y-2 text-yellow-600">
+                                        <li>• "Shalom" works perfectly for friends and family</li>
+                                        <li>• Can be shortened in casual conversation</li>
+                                        <li>• Body language matters: warmth and openness</li>
+                                        <li>• Genuine emotion enhances connection</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8">
+                            <h4 class="text-2xl font-bold mb-4 text-primary">Modern Israeli Usage:</h4>
+                            <p class="text-gray-700 leading-relaxed text-lg">
+                                In contemporary Israel, these greetings bridge ancient tradition with modern life. "Shalom" remains universally appropriate, 
+                                while time-specific greetings demonstrate cultural sophistication. Young Israelis often blend traditional expressions 
+                                with contemporary casual language, but mastering these classics provides a solid foundation for respectful communication 
+                                in any Hebrew-speaking environment, from Jerusalem's ancient quarters to Tel Aviv's modern boulevards.
+                            </p>
+                        </div>
+                    </div>
+                `,
+                quiz: [
+                    {
+                        question: "What is the literal meaning of 'שלום' (Shalom) in Hebrew?",
+                        options: ["Hello", "Goodbye", "Peace", "Friend"],
+                        correct: 2,
+                        explanation: "Shalom literally means 'peace' in Hebrew, which explains why it can be used as both hello and goodbye—you're wishing peace upon someone in both greeting and parting."
+                    },
+                    {
+                        question: "During which time period would you appropriately use 'בוקר טוב' (Boker Tov)?",
+                        options: ["Any time of day", "Until around 11 AM", "After 6 PM", "Only on weekends"],
+                        correct: 1,
+                        explanation: "Boker Tov (Good Morning) is typically used from dawn until around 11 AM, after which you would transition to afternoon or day greetings."
+                    },
+                    {
+                        question: "Which greeting demonstrates the highest level of versatility for formal situations?",
+                        options: ["בוקר טוב", "ערב טוב", "שלום", "לילה טוב"],
+                        correct: 2,
+                        explanation: "Shalom (שלום) is the most versatile Hebrew greeting, appropriate for any time of day, any level of formality, and carries deep cultural significance meaning 'peace'."
+                    }
+                ]
+            },
+            {
+                id: 4,
+                title: "Hebrew Numbers 1-10",
+                description: "Learn Hebrew counting with masculine and feminine forms plus cultural significance",
+                estimatedTime: "25 minutes",
+                difficulty: "Intermediate",
+                content: `
+                    <div class="mb-8">
+                        <h3 class="text-3xl font-bold mb-8 gradient-text">Hebrew Numbers: Gateway to Quantitative Expression</h3>
+                        <p class="mb-8 text-xl leading-relaxed">Hebrew numbers reveal the language's sophisticated grammatical system. They have both masculine and feminine forms, depending on the gender of the noun being counted. We'll focus on the most commonly used forms in everyday speech:</p>
+                        
+                        <div class="bg-blue-50 border border-blue-200 rounded-2xl p-8 mb-10">
+                            <h4 class="text-2xl font-bold text-blue-800 mb-4">📚 Hebrew Number Grammar</h4>
+                            <p class="text-blue-700 text-lg leading-relaxed">
+                                Hebrew numbers demonstrate unique gender agreement patterns. Interestingly, masculine number forms are typically used with feminine nouns, 
+                                and vice versa. Below are the masculine forms, which are most commonly used in everyday speech and with feminine nouns.
+                            </p>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                            <div class="space-y-6">
+                                <div class="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border-2 border-blue-100">
+                                    <div class="flex justify-between items-center">
+                                        <div class="flex items-center space-x-6">
+                                            <span class="text-3xl font-bold text-primary">1</span>
+                                            <div>
+                                                <div class="hebrew-text text-2xl font-bold">אחד</div>
+                                                <div class="text-base text-gray-600">echad</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border-2 border-blue-100">
+                                    <div class="flex justify-between items-center">
+                                        <div class="flex items-center space-x-6">
+                                            <span class="text-3xl font-bold text-primary">2</span>
+                                            <div>
+                                                <div class="hebrew-text text-2xl font-bold">שניים</div>
+                                                <div class="text-base text-gray-600">shnayim</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border-2 border-blue-100">
+                                    <div class="flex justify-between items-center">
+                                        <div class="flex items-center space-x-6">
+                                            <span class="text-3xl font-bold text-primary">3</span>
+                                            <div>
+                                                <div class="hebrew-text text-2xl font-bold">שלושה</div>
+                                                <div class="text-base text-gray-600">shlosha</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border-2 border-blue-100">
+                                    <div class="flex justify-between items-center">
+                                        <div class="flex items-center space-x-6">
+                                            <span class="text-3xl font-bold text-primary">4</span>
+                                            <div>
+                                                <div class="hebrew-text text-2xl font-bold">ארבעה</div>
+                                                <div class="text-base text-gray-600">arba'a</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border-2 border-blue-100">
+                                    <div class="flex justify-between items-center">
+                                        <div class="flex items-center space-x-6">
+                                            <span class="text-3xl font-bold text-primary">5</span>
+                                            <div>
+                                                <div class="hebrew-text text-2xl font-bold">חמישה</div>
+                                                <div class="text-base text-gray-600">chamisha</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-6">
+                                <div class="p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border-2 border-green-100">
+                                    <div class="flex justify-between items-center">
+                                        <div class="flex items-center space-x-6">
+                                            <span class="text-3xl font-bold text-success">6</span>
+                                            <div>
+                                                <div class="hebrew-text text-2xl font-bold">שישה</div>
+                                                <div class="text-base text-gray-600">shisha</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border-2 border-green-100">
+                                    <div class="flex justify-between items-center">
+                                        <div class="flex items-center space-x-6">
+                                            <span class="text-3xl font-bold text-success">7</span>
+                                            <div>
+                                                <div class="hebrew-text text-2xl font-bold">שבעה</div>
+                                                <div class="text-base text-gray-600">shiv'a</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border-2 border-green-100">
+                                    <div class="flex justify-between items-center">
+                                        <div class="flex items-center space-x-6">
+                                            <span class="text-3xl font-bold text-success">8</span>
+                                            <div>
+                                                <div class="hebrew-text text-2xl font-bold">שמונה</div>
+                                                <div class="text-base text-gray-600">shmona</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border-2 border-green-100">
+                                    <div class="flex justify-between items-center">
+                                        <div class="flex items-center space-x-6">
+                                            <span class="text-3xl font-bold text-success">9</span>
+                                            <div>
+                                                <div class="hebrew-text text-2xl font-bold">תשעה</div>
+                                                <div class="text-base text-gray-600">tish'a</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border-2 border-green-100">
+                                    <div class="flex justify-between items-center">
+                                        <div class="flex items-center space-x-6">
+                                            <span class="text-3xl font-bold text-success">10</span>
+                                            <div>
+                                                <div class="hebrew-text text-2xl font-bold">עשרה</div>
+                                                <div class="text-base text-gray-600">asara</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-yellow-50 border border-yellow-200 rounded-2xl p-8 mb-8">
+                            <h4 class="text-2xl font-bold text-yellow-800 mb-6">🔢 Practical Number Applications:</h4>
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <div>
+                                    <h5 class="font-bold mb-4 text-yellow-700 text-lg">Common Phrases:</h5>
+                                    <div class="space-y-3 text-base">
+                                        <div class="flex justify-between p-3 bg-white rounded-lg">
+                                            <span class="hebrew-text">שנה אחת</span>
+                                            <span class="text-gray-600">one year</span>
+                                        </div>
+                                        <div class="flex justify-between p-3 bg-white rounded-lg">
+                                            <span class="hebrew-text">שלושה ימים</span>
+                                            <span class="text-gray-600">three days</span>
+                                        </div>
+                                        <div class="flex justify-between p-3 bg-white rounded-lg">
+                                            <span class="hebrew-text">עשרה בנים</span>
+                                            <span class="text-gray-600">ten boys</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold mb-4 text-yellow-700 text-lg">Memory Strategies:</h5>
+                                    <ul class="space-y-2 text-base text-yellow-600">
+                                        <li>• Notice patterns: many end in -ה (-a)</li>
+                                        <li>• "Echad" connects to "one/unique"</li>
+                                        <li>• "Shnayim" contains dual sound pattern</li>
+                                        <li>• Practice counting daily objects</li>
+                                        <li>• Use hand gestures while counting</li>
+                                        <li>• Connect numbers to age, dates, quantities</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8">
+                            <h4 class="text-2xl font-bold mb-4 text-primary">Cultural & Religious Significance:</h4>
+                            <p class="text-gray-700 leading-relaxed text-lg">
+                                Numbers hold profound meaning in Hebrew culture and Jewish tradition. Seven (שבעה) appears throughout religious contexts as a sacred number 
+                                representing completion and divine perfection. Eighteen (חי, pronounced "chai") represents "life" and is considered especially fortunate. 
+                                Mastering Hebrew numbers enables participation in everyday conversations about prices, ages, dates, and cultural celebrations, 
+                                connecting learners to both practical communication and rich cultural traditions that span millennia.
+                            </p>
+                        </div>
+                    </div>
+                `,
+                quiz: [
+                    {
+                        question: "How do you express 'five' in Hebrew?",
+                        options: ["ארבעה", "חמישה", "שישה", "שבעה"],
+                        correct: 1,
+                        explanation: "Five in Hebrew is חמישה (chamisha). Notice the ח (chet) at the beginning and the -ה ending typical of Hebrew masculine number forms."
+                    },
+                    {
+                        question: "What number does 'שמונה' (shmona) represent?",
+                        options: ["6", "7", "8", "9"],
+                        correct: 2,
+                        explanation: "שמונה (shmona) is the Hebrew number for eight. The distinctive 'shm-' beginning helps with memorization and pronunciation."
+                    },
+                    {
+                        question: "Which Hebrew number carries special sacred significance in Jewish tradition?",
+                        options: ["חמישה (five)", "שישה (six)", "שבעה (seven)", "שמונה (eight)"],
+                        correct: 2,
+                        explanation: "שבעה (seven) holds sacred significance in Hebrew culture, appearing throughout religious contexts as a number representing divine completion and perfection."
+                    }
+                ]
+            },
+            {
+                id: 5,
+                title: "Essential Hebrew Phrases",
+                description: "Master polite expressions and conversational foundations for authentic Hebrew interaction",
+                estimatedTime: "28 minutes",
+                difficulty: "Intermediate",
+                content: `
+                    <div class="mb-8">
+                        <h3 class="text-3xl font-bold mb-8 gradient-text">Essential Hebrew Phrases for Authentic Communication</h3>
+                        <p class="mb-8 text-xl leading-relaxed">These fundamental phrases form the backbone of polite Hebrew conversation. Mastering these expressions demonstrates respect for Hebrew-speaking culture and enables meaningful social interaction across diverse contexts:</p>
+                        
+                        <div class="space-y-8 mb-10">
+                            <div class="p-8 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl border-l-4 border-blue-500">
+                                <div class="flex justify-between items-start mb-6">
+                                    <div>
+                                        <div class="hebrew-text text-3xl font-bold text-primary mb-3">תודה</div>
+                                        <div class="text-2xl font-semibold text-gray-800 mb-2">Toda</div>
+                                        <div class="text-lg text-gray-600">Thank you</div>
+                                    </div>
+                                </div>
+                                <div class="text-base text-blue-700 leading-relaxed">
+                                    The fundamental expression of gratitude in Hebrew. Can be intensified as "תודה רבה" (toda raba) meaning "thank you very much." 
+                                    Essential for polite interaction and showing appreciation in Hebrew-speaking environments.
+                                </div>
+                            </div>
+                            
+                            <div class="p-8 bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl border-l-4 border-green-500">
+                                <div class="flex justify-between items-start mb-6">
+                                    <div>
+                                        <div class="hebrew-text text-3xl font-bold text-success mb-3">בבקשה</div>
+                                        <div class="text-2xl font-semibold text-gray-800 mb-2">Bevakasha</div>
+                                        <div class="text-lg text-gray-600">Please / You're welcome</div>
+                                    </div>
+                                </div>
+                                <div class="text-base text-green-700 leading-relaxed">
+                                    Remarkably versatile phrase meaning both "please" (when making requests) and "you're welcome" (when responding to thanks). 
+                                    Demonstrates Hebrew's efficiency in expressing politeness and forms the foundation of courteous conversation.
+                                </div>
+                            </div>
+                            
+                            <div class="p-8 bg-gradient-to-r from-purple-50 to-violet-50 rounded-2xl border-l-4 border-purple-500">
+                                <div class="flex justify-between items-start mb-6">
+                                    <div>
+                                        <div class="hebrew-text text-3xl font-bold text-purple-600 mb-3">סליחה</div>
+                                        <div class="text-2xl font-semibold text-gray-800 mb-2">Slicha</div>
+                                        <div class="text-lg text-gray-600">Excuse me / Sorry</div>
+                                    </div>
+                                </div>
+                                <div class="text-base text-purple-700 leading-relaxed">
+                                    Multi-purpose expression used to get attention, apologize for minor mistakes, or when you need to pass by someone. 
+                                    Invaluable in crowded places and demonstrates consideration for others in Hebrew social contexts.
+                                </div>
+                            </div>
+                            
+                            <div class="p-8 bg-gradient-to-r from-orange-50 to-amber-50 rounded-2xl border-l-4 border-orange-500">
+                                <div class="flex justify-between items-start mb-6">
+                                    <div>
+                                        <div class="hebrew-text text-3xl font-bold text-orange-600 mb-3">אני לא מבין</div>
+                                        <div class="text-2xl font-semibold text-gray-800 mb-2">Ani lo mevin</div>
+                                        <div class="text-lg text-gray-600">I don't understand (masculine speaker)</div>
+                                    </div>
+                                </div>
+                                <div class="text-base text-orange-700 leading-relaxed">
+                                    Crucial phrase for learners navigating Hebrew conversations. Feminine speakers say "אני לא מבינה" (ani lo mevina). 
+                                    Shows your effort to communicate and often leads to helpful clarification from Hebrew speakers.
+                                </div>
+                            </div>
+                            
+                            <div class="p-8 bg-gradient-to-r from-red-50 to-pink-50 rounded-2xl border-l-4 border-red-500">
+                                <div class="flex justify-between items-start mb-6">
+                                    <div>
+                                        <div class="hebrew-text text-3xl font-bold text-red-600 mb-3">אתה מדבר אנגלית?</div>
+                                        <div class="text-2xl font-semibold text-gray-800 mb-2">Ata medaber anglit?</div>
+                                        <div class="text-lg text-gray-600">Do you speak English? (to male)</div>
+                                    </div>
+                                </div>
+                                <div class="text-base text-red-700 leading-relaxed">
+                                    Practical phrase when you need linguistic assistance. To a female: "את מדברת אנגלית?" (at medaberet anglit?). 
+                                    Many Israelis speak English, making this a helpful bridge when Hebrew communication becomes challenging.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-10 mb-10">
+                            <div class="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl p-8">
+                                <h4 class="text-2xl font-bold text-blue-800 mb-6">🗣️ Conversation Enhancers:</h4>
+                                <div class="space-y-4">
+                                    <div class="p-4 bg-white rounded-lg">
+                                        <div class="hebrew-text text-lg font-semibold mb-2">מה שלומך?</div>
+                                        <div class="text-base text-gray-600">How are you? (to male)</div>
+                                        <div class="text-sm text-blue-600 mt-1">Ma shlomcha?</div>
+                                    </div>
+                                    <div class="p-4 bg-white rounded-lg">
+                                        <div class="hebrew-text text-lg font-semibold mb-2">איך קוראים לך?</div>
+                                        <div class="text-base text-gray-600">What's your name?</div>
+                                        <div class="text-sm text-blue-600 mt-1">Eich korim lecha?</div>
+                                    </div>
+                                    <div class="p-4 bg-white rounded-lg">
+                                        <div class="hebrew-text text-lg font-semibold mb-2">מאיפה אתה?</div>
+                                        <div class="text-base text-gray-600">Where are you from?</div>
+                                        <div class="text-sm text-blue-600 mt-1">Me'eifo ata?</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gradient-to-br from-green-50 to-emerald-100 rounded-2xl p-8">
+                                <h4 class="text-2xl font-bold text-green-800 mb-6">💡 Advanced Grammar Insights:</h4>
+                                <div class="space-y-4 text-base">
+                                    <div class="p-4 bg-white rounded-lg">
+                                        <div class="font-bold text-green-700 mb-2">Gender Agreement:</div>
+                                        <div class="text-gray-600">Hebrew verbs and adjectives change based on both speaker's and listener's gender, creating precision in communication.</div>
+                                    </div>
+                                    <div class="p-4 bg-white rounded-lg">
+                                        <div class="font-bold text-green-700 mb-2">Word Order Flexibility:</div>
+                                        <div class="text-gray-600">Hebrew often uses Verb-Subject-Object order, but allows flexibility for emphasis and style, unlike rigid English structure.</div>
+                                    </div>
+                                    <div class="p-4 bg-white rounded-lg">
+                                        <div class="font-bold text-green-700 mb-2">Pronunciation Mastery:</div>
+                                        <div class="text-gray-600">Hebrew contains sounds unique to Semitic languages—consistent practice develops authentic pronunciation and cultural connection.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-yellow-50 to-amber-50 rounded-2xl p-8 mb-8">
+                            <h4 class="text-2xl font-bold text-yellow-800 mb-6">🎯 Real-World Application Scenarios:</h4>
+                            <div class="grid md:grid-cols-3 gap-6 text-base">
+                                <div>
+                                    <h5 class="font-bold mb-3 text-yellow-700">Restaurant Interactions:</h5>
+                                    <ul class="space-y-2 text-yellow-600">
+                                        <li>• "תודה" when receiving your order</li>
+                                        <li>• "בבקשה" when making requests</li>
+                                        <li>• "סליחה" to get waiter's attention</li>
+                                        <li>• Build rapport through politeness</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold mb-3 text-yellow-700">Social Gatherings:</h5>
+                                    <ul class="space-y-2 text-yellow-600">
+                                        <li>• "איך קוראים לך?" for introductions</li>
+                                        <li>• "אני לא מבין" when confused</li>
+                                        <li>• "אתה מדבר אנגלית?" for assistance</li>
+                                        <li>• Show genuine interest in connection</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold mb-3 text-yellow-700">Daily Encounters:</h5>
+                                    <ul class="space-y-2 text-yellow-600">
+                                        <li>• "מה שלומך?" for friendly check-ins</li>
+                                        <li>• "תודה רבה" for significant help</li>
+                                        <li>• "סליחה" when navigating crowds</li>
+                                        <li>• Create positive cultural impressions</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8">
+                            <h4 class="text-2xl font-bold mb-4 text-primary">Confidence Through Communication:</h4>
+                            <p class="text-gray-700 leading-relaxed text-lg">
+                                Hebrew speakers universally appreciate sincere efforts to communicate in their language. These essential phrases demonstrate 
+                                respect and cultural awareness, often leading to patient assistance and warm reception. Don't worry about perfect pronunciation 
+                                initially—authenticity and effort matter more than perfection. Practice these expressions daily, and soon they'll become 
+                                natural responses. Remember: every conversation is a learning opportunity, and Hebrew speakers are generally delighted to help 
+                                learners improve their skills. Your courage to communicate in Hebrew opens doors to meaningful cultural connections and deeper understanding.
+                            </p>
+                        </div>
+                    </div>
+                `,
+                quiz: [
+                    {
+                        question: "How do you intensify gratitude in Hebrew to mean 'thank you very much'?",
+                        options: ["תודה", "תודה רבה", "בבקשה", "סליחה"],
+                        correct: 1,
+                        explanation: "תודה רבה (toda raba) means 'thank you very much'. The word רבה (raba) adds emphasis, meaning 'much' or 'a lot', intensifying your expression of gratitude."
+                    },
+                    {
+                        question: "What demonstrates the versatility of 'בבקשה' (bevakasha)?",
+                        options: ["It only means sorry", "It only means thank you", "It means both please and you're welcome", "It only means hello"],
+                        correct: 2,
+                        explanation: "בבקשה (bevakasha) demonstrates Hebrew's efficiency—it means both 'please' when making requests and 'you're welcome' when responding to thanks, making it essential for polite conversation."
+                    },
+                    {
+                        question: "If you're a female speaker who doesn't understand something, you would say:",
+                        options: ["אני לא מבין", "אני לא מבינה", "סליחה", "תודה"],
+                        correct: 1,
+                        explanation: "Female speakers say אני לא מבינה (ani lo mevina). The -ה ending indicates feminine gender agreement in Hebrew verbs, demonstrating the language's grammatical precision."
+                    }
+                ]
+            },
+            {
+                id: 6,
+                title: "Hebrew Conversation Mastery",
+                description: "Integrate all skills in realistic dialogue scenarios with advanced cultural insights",
+                estimatedTime: "35 minutes",
+                difficulty: "Intermediate-Advanced",
+                content: `
+                    <div class="mb-8">
+                        <h3 class="text-3xl font-bold mb-8 gradient-text">Hebrew Conversation Mastery: Real-World Application</h3>
+                        <p class="mb-8 text-xl leading-relaxed">Congratulations on reaching this milestone! You've built a comprehensive Hebrew foundation. Now we'll apply everything you've learned through realistic conversation scenarios that represent authentic Hebrew-speaking interactions:</p>
+                        
+                        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-3xl p-10 mb-10 border-2 border-blue-200">
+                            <h4 class="text-2xl font-bold text-blue-800 mb-8 text-center">🎭 Dialogue 1: Professional Introduction</h4>
+                            <div class="space-y-6 max-w-5xl mx-auto">
+                                <div class="flex justify-end">
+                                    <div class="bg-white rounded-2xl rounded-tr-none p-6 max-w-lg shadow-lg">
+                                        <div class="text-base text-gray-500 mb-2">David:</div>
+                                        <div class="hebrew-text text-xl mb-3">שלום! איך קוראים לך?</div>
+                                        <div class="text-base text-blue-600 italic mb-2">Shalom! Eich korim lech?</div>
+                                        <div class="text-sm text-gray-500">Hello! What's your name?</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex justify-start">
+                                    <div class="bg-blue-100 rounded-2xl rounded-tl-none p-6 max-w-lg shadow-lg">
+                                        <div class="text-base text-gray-500 mb-2">Sarah:</div>
+                                        <div class="hebrew-text text-xl mb-3">שלום! קוראים לי שרה. ולך?</div>
+                                        <div class="text-base text-blue-600 italic mb-2">Shalom! Korim li Sara. Ve-lecha?</div>
+                                        <div class="text-sm text-gray-500">Hello! My name is Sarah. And you?</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex justify-end">
+                                    <div class="bg-white rounded-2xl rounded-tr-none p-6 max-w-lg shadow-lg">
+                                        <div class="text-base text-gray-500 mb-2">David:</div>
+                                        <div class="hebrew-text text-xl mb-3">קוראים לי דוד. נעים מאוד!</div>
+                                        <div class="text-base text-blue-600 italic mb-2">Korim li David. Na'im me'od!</div>
+                                        <div class="text-sm text-gray-500">My name is David. Very nice to meet you!</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex justify-start">
+                                    <div class="bg-blue-100 rounded-2xl rounded-tl-none p-6 max-w-lg shadow-lg">
+                                        <div class="text-base text-gray-500 mb-2">Sarah:</div>
+                                        <div class="hebrew-text text-xl mb-3">גם לי נעים. מה שלומך?</div>
+                                        <div class="text-base text-blue-600 italic mb-2">Gam li na'im. Ma shlomcha?</div>
+                                        <div class="text-sm text-gray-500">Nice to meet you too. How are you?</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex justify-end">
+                                    <div class="bg-white rounded-2xl rounded-tr-none p-6 max-w-lg shadow-lg">
+                                        <div class="text-base text-gray-500 mb-2">David:</div>
+                                        <div class="hebrew-text text-xl mb-3">טוב מאוד, תודה! ואת?</div>
+                                        <div class="text-base text-blue-600 italic mb-2">Tov me'od, toda! Ve-at?</div>
+                                        <div class="text-sm text-gray-500">Very good, thanks! And you?</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-3xl p-10 mb-10 border-2 border-green-200">
+                            <h4 class="text-2xl font-bold text-green-800 mb-8 text-center">☕ Dialogue 2: Market Interaction</h4>
+                            <div class="space-y-6 max-w-5xl mx-auto">
+                                <div class="flex justify-end">
+                                    <div class="bg-white rounded-2xl rounded-tr-none p-6 max-w-lg shadow-lg">
+                                        <div class="text-base text-gray-500 mb-2">Customer:</div>
+                                        <div class="hebrew-text text-xl mb-3">סליחה, כמה זה עולה?</div>
+                                        <div class="text-base text-green-600 italic mb-2">Slicha, kama ze ole?</div>
+                                        <div class="text-sm text-gray-500">Excuse me, how much does this cost?</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex justify-start">
+                                    <div class="bg-green-100 rounded-2xl rounded-tl-none p-6 max-w-lg shadow-lg">
+                                        <div class="text-base text-gray-500 mb-2">Vendor:</div>
+                                        <div class="hebrew-text text-xl mb-3">עשרה שקל, בבקשה</div>
+                                        <div class="text-base text-green-600 italic mb-2">Asara shekel, bevakasha</div>
+                                        <div class="text-sm text-gray-500">Ten shekels, please</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex justify-end">
+                                    <div class="bg-white rounded-2xl rounded-tr-none p-6 max-w-lg shadow-lg">
+                                        <div class="text-base text-gray-500 mb-2">Customer:</div>
+                                        <div class="hebrew-text text-xl mb-3">אני לא מבין. אתה מדבר אנגלית?</div>
+                                        <div class="text-base text-green-600 italic mb-2">Ani lo mevin. Ata medaber anglit?</div>
+                                        <div class="text-sm text-gray-500">I don't understand. Do you speak English?</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex justify-start">
+                                    <div class="bg-green-100 rounded-2xl rounded-tl-none p-6 max-w-lg shadow-lg">
+                                        <div class="text-base text-gray-500 mb-2">Vendor:</div>
+                                        <div class="hebrew-text text-xl mb-3">קצת. זה טוב מאוד!</div>
+                                        <div class="text-base text-green-600 italic mb-2">Ktzat. Ze tov me'od!</div>
+                                        <div class="text-sm text-gray-500">A little. This is very good!</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex justify-end">
+                                    <div class="bg-white rounded-2xl rounded-tr-none p-6 max-w-lg shadow-lg">
+                                        <div class="text-base text-gray-500 mb-2">Customer:</div>
+                                        <div class="hebrew-text text-xl mb-3">תודה רבה!</div>
+                                        <div class="text-base text-green-600 italic mb-2">Toda raba!</div>
+                                        <div class="text-sm text-gray-500">Thank you very much!</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-10 mb-10">
+                            <div class="bg-gradient-to-br from-purple-50 to-violet-100 rounded-2xl p-8">
+                                <h4 class="text-2xl font-bold text-purple-800 mb-6">🔑 Essential Phrase Mastery:</h4>
+                                <div class="space-y-4">
+                                    <div class="p-4 bg-white rounded-lg">
+                                        <div class="hebrew-text text-lg font-bold mb-2">קוראים לי...</div>
+                                        <div class="text-base text-gray-600">My name is...</div>
+                                        <div class="text-sm text-purple-600 mt-1">Universal introduction formula</div>
+                                    </div>
+                                    <div class="p-4 bg-white rounded-lg">
+                                        <div class="hebrew-text text-lg font-bold mb-2">נעים מאוד</div>
+                                        <div class="text-base text-gray-600">Very nice / Nice to meet you</div>
+                                        <div class="text-sm text-purple-600 mt-1">Professional courtesy expression</div>
+                                    </div>
+                                    <div class="p-4 bg-white rounded-lg">
+                                        <div class="hebrew-text text-lg font-bold mb-2">גם לי נעים</div>
+                                        <div class="text-base text-gray-600">Nice to meet you too</div>
+                                        <div class="text-sm text-purple-600 mt-1">Reciprocal politeness response</div>
+                                    </div>
+                                    <div class="p-4 bg-white rounded-lg">
+                                        <div class="hebrew-text text-lg font-bold mb-2">כמה זה עולה?</div>
+                                        <div class="text-base text-gray-600">How much does this cost?</div>
+                                        <div class="text-sm text-purple-600 mt-1">Essential shopping phrase</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gradient-to-br from-orange-50 to-amber-100 rounded-2xl p-8">
+                                <h4 class="text-2xl font-bold text-orange-800 mb-6">🎯 Advanced Hebrew Journey:</h4>
+                                <div class="space-y-4 text-base">
+                                    <div class="p-4 bg-white rounded-lg">
+                                        <div class="font-bold text-orange-700 mb-2">Vocabulary Expansion:</div>
+                                        <div class="text-gray-600">Learn family terms, food vocabulary, technology words, and contemporary expressions used in modern Israel</div>
+                                    </div>
+                                    <div class="p-4 bg-white rounded-lg">
+                                        <div class="font-bold text-orange-700 mb-2">Verb Conjugation Systems:</div>
+                                        <div class="text-gray-600">Master Hebrew's sophisticated verb patterns (binyanim) for present, past, future, and modal expressions</div>
+                                    </div>
+                                    <div class="p-4 bg-white rounded-lg">
+                                        <div class="font-bold text-orange-700 mb-2">Cultural Immersion:</div>
+                                        <div class="text-gray-600">Explore Israeli media, Hebrew literature, music, and cultural traditions for authentic language exposure</div>
+                                    </div>
+                                    <div class="p-4 bg-white rounded-lg">
+                                        <div class="font-bold text-orange-700 mb-2">Conversation Practice:</div>
+                                        <div class="text-gray-600">Join Hebrew conversation groups, language exchanges, and online communities for real-world practice</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-yellow-50 to-amber-50 rounded-2xl p-10 mb-8">
+                            <h4 class="text-3xl font-bold text-yellow-800 mb-8 text-center">🎉 Your Hebrew Mastery Achievements</h4>
+                            <div class="grid md:grid-cols-3 gap-8">
+                                <div class="text-center">
+                                    <div class="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <span class="text-white text-3xl font-hebrew">א</span>
+                                    </div>
+                                    <h5 class="font-bold text-yellow-700 mb-3 text-lg">Alphabet Proficiency</h5>
+                                    <p class="text-base text-yellow-600">Complete mastery of Hebrew letter recognition, sounds, and basic writing principles</p>
+                                </div>
+                                <div class="text-center">
+                                    <div class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <span class="text-white text-3xl">🗣️</span>
+                                    </div>
+                                    <h5 class="font-bold text-yellow-700 mb-3 text-lg">Conversational Foundation</h5>
+                                    <p class="text-base text-yellow-600">Ability to engage in basic Hebrew conversations with confidence and cultural awareness</p>
+                                </div>
+                                <div class="text-center">
+                                    <div class="w-20 h-20 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <span class="text-white text-3xl">🧠</span>
+                                    </div>
+                                    <h5 class="font-bold text-yellow-700 mb-3 text-lg">Cultural Understanding</h5>
+                                    <p class="text-base text-yellow-600">Deep appreciation for Hebrew's historical significance and modern linguistic context</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-primary to-accent rounded-3xl p-12 text-white text-center">
+                            <h4 class="text-4xl font-bold mb-6">מזל טוב על השלמת הקורס!</h4>
+                            <p class="text-2xl mb-4">Mazel Tov al hashlama ha-kurs!</p>
+                            <p class="text-xl opacity-90 mb-8">Congratulations on completing the comprehensive course!</p>
+                            <p class="text-xl leading-relaxed max-w-4xl mx-auto mb-8">
+                                You've achieved remarkable progress in Modern Hebrew mastery. From alphabet recognition to authentic conversations, 
+                                you now possess the foundational tools for continued Hebrew learning success. This journey connects you to 
+                                thousands of years of linguistic heritage while preparing you for contemporary Hebrew communication. 
+                                Remember: language learning is a lifelong adventure—stay curious, practice consistently, and celebrate every milestone!
+                            </p>
+                            <div class="mt-8 hebrew-text text-3xl mb-4">
+                                !בהצלחה בהמשך המסע
+                            </div>
+                            <div class="text-lg opacity-75">Good luck on your continued journey!</div>
+                        </div>
+                    </div>
+                `,
+                quiz: [
+                    {
+                        question: "How do you appropriately respond when someone introduces themselves as David (דוד)?",
+                        options: [
+                            "שלום",
+                            "קוראים לי... נעים מאוד!",
+                            "תודה",
+                            "סליחה"
+                        ],
+                        correct: 1,
+                        explanation: "The proper response is to introduce yourself with 'קוראים לי... נעים מאוד!' (My name is... Nice to meet you!), following Hebrew social conventions and demonstrating cultural awareness."
+                    },
+                    {
+                        question: "What is the literal meaning of 'נעים מאוד' in Hebrew?",
+                        options: [
+                            "Good morning",
+                            "Thank you very much", 
+                            "Very pleasant/nice",
+                            "I don't understand"
+                        ],
+                        correct: 2,
+                        explanation: "'נעים מאוד' literally means 'very pleasant' or 'very nice,' commonly used when meeting someone new, equivalent to 'nice to meet you' and expressing genuine pleasure in the introduction."
+                    },
+                    {
+                        question: "In the market dialogue, what phrase demonstrates effective communication strategy when confused?",
+                        options: [
+                            "תודה רבה",
+                            "אני לא מבין. אתה מדבר אנגלית?",
+                            "בוקר טוב",
+                            "נעים מאוד"
+                        ],
+                        correct: 1,
+                        explanation: "'אני לא מבין. אתה מדבר אנגלית?' (I don't understand. Do you speak English?) demonstrates excellent communication strategy—acknowledging confusion and seeking linguistic assistance constructively."
+                    }
+                ]
+            }
+        ];
+
+        // Hebrew Alphabet Data
+        const hebrewAlphabet = [
+            { letter: 'א', name: 'Aleph', transliteration: 'silent/a', description: 'Silent letter, vowel carrier', english: 'a' },
+            { letter: 'ב', name: 'Bet/Vet', transliteration: 'b/v', description: 'B with dot, V without', english: 'b/v' },
+            { letter: 'ג', name: 'Gimel', transliteration: 'g', description: 'Hard G sound', english: 'g' },
+            { letter: 'ד', name: 'Dalet', transliteration: 'd', description: 'D sound', english: 'd' },
+            { letter: 'ה', name: 'Hey', transliteration: 'h', description: 'Soft H, often prefix "the"', english: 'h' },
+            { letter: 'ו', name: 'Vav', transliteration: 'v/o/u', description: 'V sound or vowel O/U', english: 'v/o/u' },
+            { letter: 'ז', name: 'Zayin', transliteration: 'z', description: 'Z sound', english: 'z' },
+            { letter: 'ח', name: 'Chet', transliteration: 'ch', description: 'Guttural CH sound', english: 'ch' },
+            { letter: 'ט', name: 'Tet', transliteration: 't', description: 'Emphatic T', english: 't' },
+            { letter: 'י', name: 'Yod', transliteration: 'y/i', description: 'Y sound or vowel I', english: 'y/i' },
+            { letter: 'כ', name: 'Kaf/Chaf', transliteration: 'k/ch', description: 'K with dot, CH without', english: 'k/ch' },
+            { letter: 'ל', name: 'Lamed', transliteration: 'l', description: 'L sound', english: 'l' },
+            { letter: 'מ', name: 'Mem', transliteration: 'm', description: 'M sound', english: 'm' },
+            { letter: 'ן', name: 'Nun Sofit', transliteration: 'n', description: 'Final N', english: 'n' },
+            { letter: 'נ', name: 'Nun', transliteration: 'n', description: 'N sound', english: 'n' },
+            { letter: 'ס', name: 'Samech', transliteration: 's', description: 'S sound', english: 's' },
+            { letter: 'ע', name: 'Ayin', transliteration: 'silent', description: 'Guttural, usually silent', english: 'silent' },
+            { letter: 'פ', name: 'Pey/Fey', transliteration: 'p/f', description: 'P with dot, F without', english: 'p/f' },
+            { letter: 'צ', name: 'Tzadi', transliteration: 'tz', description: 'TS sound', english: 'tz' },
+            { letter: 'ק', name: 'Qof', transliteration: 'k', description: 'K sound (back of throat)', english: 'k' },
+            { letter: 'ר', name: 'Resh', transliteration: 'r', description: 'R sound (rolled)', english: 'r' },
+            { letter: 'ש', name: 'Shin/Sin', transliteration: 'sh/s', description: 'SH with right dot, S with left', english: 'sh/s' },
+            { letter: 'ת', name: 'Tav', transliteration: 't', description: 'T sound', english: 't' }
+        ];
+
+        // Practice Data
+        const practiceData = {
+            alphabet: hebrewAlphabet.map((item, index) => ({ 
+                text: item.letter, 
+                label: `${item.name} (${item.transliteration})`,
+                description: item.description,
+                position: index + 1
+            })),
+            words: [
+                { text: 'שלום', label: 'peace/hello', meaning: 'The most common Hebrew greeting' },
+                { text: 'תודה', label: 'thank you', meaning: 'Essential politeness expression' },
+                { text: 'בית', label: 'house', meaning: 'Basic vocabulary for home' },
+                { text: 'מים', label: 'water', meaning: 'Essential daily word' },
+                { text: 'אמא', label: 'mother', meaning: 'Family relationship term' },
+                { text: 'אבא', label: 'father', meaning: 'Family relationship term' },
+                { text: 'חבר', label: 'friend', meaning: 'Social relationship term' },
+                { text: 'לחם', label: 'bread', meaning: 'Basic food item' },
+                { text: 'עיר', label: 'city', meaning: 'Geographic location' },
+                { text: 'זמן', label: 'time', meaning: 'Temporal concept' }
+            ],
+            sentences: [
+                { text: 'שלום!', label: 'Hello!', meaning: 'Basic greeting' },
+                { text: 'מה שלומך?', label: 'How are you? (to male)', meaning: 'Common conversation starter' },
+                { text: 'קוראים לי דוד', label: 'My name is David', meaning: 'Self-introduction' },
+                { text: 'אני לא מבין', label: 'I don\'t understand', meaning: 'Useful when confused' },
+                { text: 'תודה רבה', label: 'Thank you very much', meaning: 'Expressing gratitude' },
+                { text: 'איפה הבית?', label: 'Where is the house?', meaning: 'Asking for directions' }
+            ]
+        };
+
+        // Motivational messages based on progress
+        const motivationalMessages = [
+            "Begin your Hebrew mastery today!",
+            "Excellent start! Your Hebrew foundation is growing.",
+            "Great progress! Hebrew patterns are becoming clearer.",
+            "Halfway through! Your Hebrew skills are developing beautifully.",
+            "Outstanding progress! You're becoming conversationally confident.",
+            "Nearly complete! You're achieving Hebrew mastery!"
+        ];
+
+        // Enhanced Sound Management
+        function initializeAudio() {
+            try {
+                appState.audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            } catch (error) {
+                console.warn('Audio not supported:', error);
+            }
+        }
+
+        function playSound(type, duration = 0.3) {
+            if (!appState.soundEnabled || !appState.audioContext) return;
+            
+            try {
+                let frequencies;
+                let oscillatorType = 'sine';
+                
+                switch(type) {
+                    case 'success':
+                        frequencies = [523.25]; // C5
+                        break;
+                    case 'celebration':
+                        // Hebrew-inspired celebratory melody
+                        frequencies = [523.25, 659.25, 783.99, 1046.50, 783.99, 1174.66];
+                        oscillatorType = 'triangle';
+                        break;
+                    case 'error':
+                        frequencies = [220]; // A3
+                        oscillatorType = 'square';
+                        break;
+                    default:
+                        frequencies = [440]; // A4
+                }
+                
+                frequencies.forEach((freq, index) => {
+                    setTimeout(() => {
+                        const oscillator = appState.audioContext.createOscillator();
+                        const gainNode = appState.audioContext.createGain();
+                        
+                        oscillator.connect(gainNode);
+                        gainNode.connect(appState.audioContext.destination);
+                        
+                        oscillator.frequency.value = freq;
+                        oscillator.type = oscillatorType;
+                        
+                        gainNode.gain.setValueAtTime(0.2, appState.audioContext.currentTime);
+                        gainNode.gain.exponentialRampToValueAtTime(0.01, appState.audioContext.currentTime + duration);
+                        
+                        oscillator.start(appState.audioContext.currentTime);
+                        oscillator.stop(appState.audioContext.currentTime + duration);
+                    }, index * (type === 'celebration' ? 250 : 0));
+                });
+            } catch (error) {
+                console.warn('Audio playback failed:', error);
+            }
+        }
+
+        // UI Management
+        function updateUI() {
+            updateProgressDashboard();
+            renderLessons();
+            renderAlphabet();
+            updateHeader();
+            updateMotivationalMessage();
+        }
+
+        function updateProgressDashboard() {
+            const completed = appState.completedLessons.length;
+            const total = lessons.length;
+            const percentage = Math.round((completed / total) * 100);
+            
+            document.getElementById('completedLessons').textContent = completed;
+            document.getElementById('tokenCount').textContent = appState.totalTokens;
+            document.getElementById('progressPercent').textContent = `${percentage}%`;
+            document.getElementById('progressBar').style.width = `${percentage}%`;
+            document.getElementById('progressBar').setAttribute('aria-valuenow', percentage);
+        }
+
+        function updateMotivationalMessage() {
+            const completed = appState.completedLessons.length;
+            const message = motivationalMessages[completed] || motivationalMessages[motivationalMessages.length - 1];
+            document.getElementById('motivationalMessage').textContent = message;
+        }
+
+        function updateHeader() {
+            const header = document.getElementById('header');
+            
+            const handleScroll = () => {
+                if (window.scrollY > 100) {
+                    header.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-lg');
+                } else {
+                    header.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-lg');
+                }
+            };
+            
+            window.addEventListener('scroll', handleScroll);
+            handleScroll();
+        }
+
+        function renderLessons() {
+            const container = document.querySelector('#lessons .grid');
+            container.innerHTML = '';
+            
+            lessons.forEach((lesson, index) => {
+                const isCompleted = appState.completedLessons.includes(lesson.id);
+                const isLocked = index > 0 && !appState.completedLessons.includes(lessons[index - 1].id) && !appState.currentUser;
+                const needsLogin = index > 0 && !appState.currentUser;
+                
+                const card = document.createElement('div');
+                card.className = `lesson-card rounded-3xl shadow-lg p-10 card-hover cursor-pointer transition-all duration-300 border-2 ${isCompleted ? 'lesson-completed border-success' : 'border-gray-100'} ${isLocked ? 'lesson-locked' : ''}`;
+                
+                card.innerHTML = `
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="flex-1">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center text-white font-bold text-2xl">
+                                    ${lesson.id}
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-gray-800">${lesson.title}</h3>
+                                    <div class="text-base text-gray-500 flex items-center space-x-6 mt-2">
+                                        <span>⏱️ ${lesson.estimatedTime}</span>
+                                        <span>🎯 ${lesson.difficulty}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col items-center space-y-3">
+                            ${isCompleted ? '<div class="text-success text-4xl" title="Completed">✓</div>' : ''}
+                            ${isLocked ? '<div class="text-gray-400 text-4xl" title="Locked">🔒</div>' : ''}
+                            ${!isCompleted && !isLocked ? '<div class="text-primary text-4xl animate-pulse">▶️</div>' : ''}
+                        </div>
+                    </div>
+                    
+                    <p class="text-gray-600 mb-8 leading-relaxed text-lg">${lesson.description}</p>
+                    
+                    <div class="flex justify-between items-center pt-6 border-t border-gray-100">
+                        <div class="flex items-center space-x-6">
+                            <span class="text-base text-gray-500">Lesson ${lesson.id}/6</span>
+                            ${isCompleted ? '<span class="text-base text-success font-semibold">✓ Mastered</span>' : ''}
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span class="text-accent font-bold text-2xl">+10</span>
+                            <span class="text-base text-gray-500">tokens</span>
+                        </div>
+                    </div>
+                `;
+                
+                const handleActivation = () => {
+                    if (needsLogin && !isCompleted) {
+                        showModal('loginModal');
+                        announceToScreenReader('Login required to access this lesson');
+                    } else if (!isLocked) {
+                        startLesson(lesson);
+                        announceToScreenReader(`Starting lesson ${lesson.id}: ${lesson.title}`);
+                    } else {
+                        announceToScreenReader(`Lesson ${lesson.id} is locked. Complete previous lessons first.`);
+                    }
+                };
+                
+                card.addEventListener('click', handleActivation);
+                card.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        handleActivation();
+                    }
+                });
+                
+                card.setAttribute('tabindex', '0');
+                card.setAttribute('role', 'button');
+                card.setAttribute('aria-label', `Lesson ${lesson.id}: ${lesson.title}. ${lesson.description}. ${isCompleted ? 'Completed' : isLocked ? 'Locked' : 'Available'}`);
+                
+                container.appendChild(card);
+            });
+        }
+
+        function renderAlphabet() {
+            const container = document.querySelector('#alphabet .grid');
+            container.innerHTML = '';
+            
+            hebrewAlphabet.forEach((item, index) => {
+                const card = document.createElement('div');
+                card.className = 'alphabet-card rounded-2xl shadow-lg p-8 text-center card-hover transition-all duration-300';
+                
+                card.innerHTML = `
+                    <div class="hebrew-letter text-6xl mb-6 will-change-transform">${item.letter}</div>
+                    <div class="font-bold text-xl text-primary mb-3">${item.name}</div>
+                    <div class="text-base text-gray-600 mb-4">${item.transliteration}</div>
+                    <div class="text-sm text-gray-500 mb-4 min-h-12 leading-tight">${item.description}</div>
+                    <div class="text-xs text-gray-400 absolute bottom-2 right-2">${item.english}</div>
+                `;
+                
+                container.appendChild(card);
+            });
+        }
+
+        // Enhanced Lesson Management
+        function startLesson(lesson) {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 modal z-50 flex items-center justify-center p-4';
+            modal.setAttribute('role', 'dialog');
+            modal.setAttribute('aria-modal', 'true');
+            modal.setAttribute('aria-labelledby', 'lesson-modal-title');
+            
+            modal.innerHTML = `
+                <div class="bg-white rounded-3xl shadow-2xl max-w-6xl w-full max-h-90vh overflow-y-auto border-2 border-gray-200">
+                    <div class="sticky top-0 bg-white border-b border-gray-200 px-10 py-8 rounded-t-3xl">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <h2 id="lesson-modal-title" class="text-4xl font-bold gradient-text">${lesson.title}</h2>
+                                <div class="flex items-center space-x-6 mt-3 text-base text-gray-500">
+                                    <span>⏱️ ${lesson.estimatedTime}</span>
+                                    <span>🎯 ${lesson.difficulty}</span>
+                                    <span>📚 Lesson ${lesson.id} of 6</span>
+                                </div>
+                            </div>
+                            <button onclick="this.closest('.modal').remove()" 
+                                    class="text-gray-500 hover:text-gray-700 p-3 rounded-full hover:bg-gray-100 transition-colors focus:ring-4 focus:ring-gray-400/50"
+                                    aria-label="Close lesson">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="p-10">
+                        ${lesson.content}
+                    </div>
+                    
+                    <div class="sticky bottom-0 bg-white border-t border-gray-200 px-10 py-8 rounded-b-3xl">
+                        <div class="flex justify-between items-center">
+                            <div class="text-base text-gray-500">
+                                Ready to demonstrate your mastery?
+                            </div>
+                            <button onclick="startQuiz(${lesson.id}); this.closest('.modal').remove();" 
+                                    class="px-12 py-5 bg-gradient-to-r from-primary to-accent text-white rounded-xl hover:from-primary/90 hover:to-accent/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 focus:ring-4 focus:ring-accent/50 text-xl font-semibold">
+                                Begin Assessment →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            const closeButton = modal.querySelector('button');
+            closeButton.focus();
+            
+            modal.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    modal.remove();
+                }
+            });
+        }
+
+        function startQuiz(lessonId) {
+            const lesson = lessons.find(l => l.id === lessonId);
+            appState.currentQuiz = {
+                lessonId,
+                questions: lesson.quiz,
+                currentQuestion: 0,
+                score: 0,
+                answers: []
+            };
+            
+            showQuiz();
+            announceToScreenReader(`Starting assessment for lesson ${lessonId}. Question 1 of ${lesson.quiz.length}`);
+        }
+
+        function showQuiz() {
+            const quiz = appState.currentQuiz;
+            const question = quiz.questions[quiz.currentQuestion];
+            const progressPercent = ((quiz.currentQuestion + 1) / quiz.questions.length) * 100;
+            
+            document.getElementById('quizTitle').textContent = `Lesson ${quiz.lessonId} Assessment`;
+            document.getElementById('quizProgress').textContent = `Question ${quiz.currentQuestion + 1} of ${quiz.questions.length}`;
+            document.getElementById('quizProgressBar').style.width = `${progressPercent}%`;
+            
+            const content = document.getElementById('quizContent');
+            content.innerHTML = `
+                <div class="mb-10">
+                    <h4 class="text-2xl font-bold mb-8 text-gray-800 leading-relaxed">${question.question}</h4>
+                    <div class="space-y-5" role="radiogroup" aria-labelledby="quiz-question">
+                        ${question.options.map((option, index) => `
+                            <button class="quiz-option w-full p-6 text-left border-2 border-gray-200 rounded-xl hover:border-primary hover:bg-primary/5 transition-all duration-300 focus:ring-4 focus:ring-primary/50 text-xl" 
+                                    data-index="${index}"
+                                    role="radio"
+                                    aria-checked="false"
+                                    tabindex="0">
+                                <div class="flex items-center space-x-6">
+                                    <div class="w-10 h-10 rounded-full border-2 border-gray-300 flex items-center justify-center text-lg font-bold">
+                                        ${String.fromCharCode(65 + index)}
+                                    </div>
+                                    <div class="flex-1">${option}</div>
+                                </div>
+                            </button>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            
+            content.querySelectorAll('.quiz-option').forEach((button, index) => {
+                const handleSelection = () => selectAnswer(index);
+                
+                button.addEventListener('click', handleSelection);
+                button.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        handleSelection();
+                    }
+                });
+            });
+            
+            showModal('quizModal');
+        }
+
+        function selectAnswer(selectedIndex) {
+            const quiz = appState.currentQuiz;
+            const question = quiz.questions[quiz.currentQuestion];
+            const isCorrect = selectedIndex === question.correct;
+            
+            quiz.answers.push({
+                questionIndex: quiz.currentQuestion,
+                selectedIndex,
+                isCorrect
+            });
+            
+            if (isCorrect) {
+                quiz.score++;
+                playSound('success');
+                announceToScreenReader('Correct answer!');
+            } else {
+                playSound('error');
+                announceToScreenReader('Incorrect answer.');
+            }
+            
+            const options = document.querySelectorAll('.quiz-option');
+            options.forEach((option, index) => {
+                option.disabled = true;
+                option.style.pointerEvents = 'none';
+                
+                if (index === question.correct) {
+                    option.classList.add('border-success', 'bg-success/10');
+                    option.innerHTML += ' <span class="text-success font-bold ml-3">✓ Correct</span>';
+                } else if (index === selectedIndex && !isCorrect) {
+                    option.classList.add('border-red-500', 'bg-red-50');
+                    option.innerHTML += ' <span class="text-red-500 font-bold ml-3">✗ Incorrect</span>';
+                } else {
+                    option.classList.add('opacity-50');
+                }
+            });
+            
+            if (question.explanation) {
+                const explanationDiv = document.createElement('div');
+                explanationDiv.className = 'mt-8 p-6 bg-blue-50 border border-blue-200 rounded-xl fade-in';
+                explanationDiv.innerHTML = `
+                    <div class="flex items-start space-x-4">
+                        <div class="text-blue-500 text-2xl">💡</div>
+                        <div>
+                            <div class="font-bold text-blue-800 mb-3 text-lg">Explanation:</div>
+                            <div class="text-blue-700 text-base leading-relaxed">${question.explanation}</div>
+                        </div>
+                    </div>
+                `;
+                document.getElementById('quizContent').appendChild(explanationDiv);
+            }
+            
+            setTimeout(() => {
+                if (quiz.currentQuestion < quiz.questions.length - 1) {
+                    quiz.currentQuestion++;
+                    showQuiz();
+                } else {
+                    finishQuiz();
+                }
+            }, 3500);
+        }
+
+        function finishQuiz() {
+            const quiz = appState.currentQuiz;
+            const totalQuestions = quiz.questions.length;
+            const passed = quiz.score >= Math.ceil(totalQuestions * 0.6);
+            const percentage = Math.round((quiz.score / totalQuestions) * 100);
+            
+            closeModal('quizModal');
+            
+            if (passed) {
+                if (!appState.completedLessons.includes(quiz.lessonId)) {
+                    appState.completedLessons.push(quiz.lessonId);
+                    appState.totalTokens += 10;
+                    saveState();
+                    updateUI();
+                    
+                    document.getElementById('celebrationMessage').textContent = 
+                        `Exceptional performance! You scored ${quiz.score}/${totalQuestions} (${percentage}%) and mastered Lesson ${quiz.lessonId}!`;
+                    showModal('celebrationModal');
+                    playSound('celebration');
+                    announceToScreenReader(`Congratulations! You mastered lesson ${quiz.lessonId} with a score of ${percentage} percent`);
+                }
+            } else {
+                showCustomModal(
+                    'Assessment Incomplete', 
+                    `You scored ${quiz.score}/${totalQuestions} (${percentage}%). You need at least ${Math.ceil(totalQuestions * 0.6)} correct answers (60%) to pass. Review the lesson material and try again for mastery!`,
+                    'Review & Retry', 
+                    () => {
+                        quiz.currentQuestion = 0;
+                        quiz.score = 0;
+                        quiz.answers = [];
+                        showQuiz();
+                    }
+                );
+                announceToScreenReader(`Assessment incomplete. You scored ${percentage} percent. Review the lesson and try again.`);
+            }
+            
+            appState.currentQuiz = null;
+        }
+
+        // Enhanced Practice Management
+        function initializePractice() {
+            const practiceSelect = document.getElementById('practiceSelect');
+            const currentPracticeDisplay = document.getElementById('currentPractice');
+            const practiceDisplayElement = document.getElementById('practiceDisplay');
+            const practiceCounter = document.getElementById('practiceCounter');
+            const practiceProgress = document.getElementById('practiceProgress');
+            
+            function updatePractice() {
+                const category = practiceSelect.value;
+                const data = practiceData[category];
+                const current = data[appState.currentPractice];
+                const total = data.length;
+                const progressPercent = ((appState.currentPractice + 1) / total) * 100;
+                
+                currentPracticeDisplay.textContent = current.label;
+                practiceDisplayElement.textContent = current.text;
+                practiceCounter.textContent = `${appState.currentPractice + 1} of ${total}`;
+                practiceProgress.style.width = `${progressPercent}%`;
+                
+                document.getElementById('prevPractice').disabled = appState.currentPractice === 0;
+                document.getElementById('nextPractice').disabled = appState.currentPractice === total - 1;
+                
+                announceToScreenReader(`Practicing ${current.label}. Item ${appState.currentPractice + 1} of ${total}`);
+            }
+            
+            practiceSelect.addEventListener('change', () => {
+                appState.currentPractice = 0;
+                updatePractice();
+                announceToScreenReader(`Switched to ${practiceSelect.options[practiceSelect.selectedIndex].text} practice`);
+            });
+            
+            document.getElementById('prevPractice').addEventListener('click', () => {
+                const category = practiceSelect.value;
+                const data = practiceData[category];
+                if (appState.currentPractice > 0) {
+                    appState.currentPractice--;
+                    updatePractice();
+                }
+            });
+            
+            document.getElementById('nextPractice').addEventListener('click', () => {
+                const category = practiceSelect.value;
+                const data = practiceData[category];
+                if (appState.currentPractice < data.length - 1) {
+                    appState.currentPractice++;
+                    updatePractice();
+                }
+            });
+            
+            updatePractice();
+        }
+
+        // Modal Management
+        function showModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            
+            const focusableElements = modal.querySelectorAll('button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
+            if (focusableElements.length > 0) {
+                focusableElements[0].focus();
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function showCustomModal(title, message, buttonText, onConfirm, cancelText = 'Cancel') {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 modal z-50 flex items-center justify-center p-4';
+            modal.setAttribute('role', 'dialog');
+            modal.setAttribute('aria-modal', 'true');
+            
+            modal.innerHTML = `
+                <div class="bg-white rounded-3xl shadow-2xl max-w-2xl w-full p-10 text-center fade-in border-2 border-gray-200">
+                    <h3 class="text-3xl font-bold mb-6 gradient-text">${title}</h3>
+                    <p class="text-gray-600 mb-10 leading-relaxed text-lg">${message}</p>
+                    <div class="flex justify-center space-x-6">
+                        <button onclick="this.closest('.modal').remove()" 
+                                class="px-8 py-4 text-gray-600 hover:bg-gray-100 rounded-xl transition-all duration-300 focus:ring-4 focus:ring-gray-400/50">
+                            ${cancelText}
+                        </button>
+                        <button onclick="this.closest('.modal').remove(); (${onConfirm})()" 
+                                class="px-10 py-4 bg-gradient-to-r from-primary to-accent text-white hover:from-primary/90 hover:to-accent/90 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 focus:ring-4 focus:ring-accent/50">
+                            ${buttonText}
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            const confirmButton = modal.querySelector('button:last-child');
+            confirmButton.focus();
+        }
+
+        // Accessibility Enhancement
+        function announceToScreenReader(message) {
+            const liveRegion = document.getElementById('liveRegion');
+            liveRegion.textContent = message;
+            
+            setTimeout(() => {
+                liveRegion.textContent = '';
+            }, 1000);
+        }
+
+        // Event Listeners and Initialization
+        document.addEventListener('DOMContentLoaded', () => {
+            loadState();
+            
+            // Initialize audio context
+            const enableAudioOnInteraction = () => {
+                initializeAudio();
+                document.removeEventListener('click', enableAudioOnInteraction);
+                document.removeEventListener('keydown', enableAudioOnInteraction);
+            };
+            
+            document.addEventListener('click', enableAudioOnInteraction);
+            document.addEventListener('keydown', enableAudioOnInteraction);
+            
+            // Sound toggle
+            document.getElementById('soundToggle').addEventListener('click', () => {
+                appState.soundEnabled = !appState.soundEnabled;
+                const button = document.getElementById('soundToggle');
+                
+                if (appState.soundEnabled) {
+                    button.classList.remove('sound-off');
+                    button.title = 'Turn off sound';
+                    announceToScreenReader('Sound enabled');
+                } else {
+                    button.classList.add('sound-off');
+                    button.title = 'Turn on sound';
+                    announceToScreenReader('Sound disabled');
+                }
+                
+                saveState();
+                playSound('success');
+            });
+            
+            // Mobile menu
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            mobileMenuToggle.addEventListener('click', () => {
+                const isOpen = !mobileMenu.classList.contains('hidden');
+                
+                if (isOpen) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                    announceToScreenReader('Menu closed');
+                } else {
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenuToggle.setAttribute('aria-expanded', 'true');
+                    announceToScreenReader('Menu opened');
+                }
+            });
+            
+            // Login form
+            document.getElementById('loginForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const username = document.getElementById('username').value.trim();
+                const password = document.getElementById('password').value.trim();
+                
+                if (!username) {
+                    announceToScreenReader('Please enter a username');
+                    document.getElementById('username').focus();
+                    return;
+                }
+                
+                if (!password || password.length !== 5 || !/^\d{5}$/.test(password)) {
+                    announceToScreenReader('Please enter a 5-digit password');
+                    document.getElementById('password').focus();
+                    return;
+                }
+                
+                appState.currentUser = { username, password };
+                saveState();
+                updateUI();
+                closeModal('loginModal');
+                playSound('success');
+                announceToScreenReader(`Welcome back, ${username}! You can now access all lessons.`);
+            });
+            
+            initializePractice();
+            
+            // Smooth scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const target = document.getElementById(targetId);
+                    
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        
+                        setTimeout(() => {
+                            target.focus();
+                        }, 500);
+                    }
+                });
+            });
+            
+            // Close mobile menu on link click
+            document.querySelectorAll('#mobileMenu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    document.getElementById('mobileMenu').classList.add('hidden');
+                    document.getElementById('mobileMenuToggle').setAttribute('aria-expanded', 'false');
+                });
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    const visibleModals = document.querySelectorAll('.modal:not(.hidden)');
+                    if (visibleModals.length > 0) {
+                        const topModal = visibleModals[visibleModals.length - 1];
+                        const closeButton = topModal.querySelector('button[onclick*="remove"]');
+                        if (closeButton) {
+                            closeButton.click();
+                        }
+                    }
+                }
+            });
+        });
+
+        // Global functions for modal management
+        window.showModal = showModal;
+        window.closeModal = closeModal;
+        window.startQuiz = startQuiz;
+        
+        // Performance monitoring
+        window.addEventListener('load', () => {
+            console.log('Hebrew Master Pro loaded successfully!');
+            
+            if (performance.timing) {
+                const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+                console.log(`Page load time: ${loadTime}ms`);
+            }
+        });
+    </script>
+</body>
+</html>
